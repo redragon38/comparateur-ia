@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Espace Admin - Comparateur IA</title>
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <h1>🧠 Admin - Gestion du fichier info.json</h1>
+
+  <div id="login-section">
+    <input type="password" id="password" placeholder="Mot de passe admin" />
+    <button id="login-btn">Connexion</button>
+    <p id="login-error" style="color:red;"></p>
+  </div>
+
+  <div id="admin-section" style="display:none;">
+    <button id="logout-btn">Se déconnecter</button>
+    <h2>Liste des IA</h2>
+
+    <table id="providers-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nom</th>
+          <th>Tagline</th>
+          <th>Prix</th>
+          <th>Note</th>
+          <th>Domaines</th>
+          <th>Fonctionnalités</th>
+          <th>URL</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <h3>Ajouter / Modifier un fournisseur</h3>
+    <form id="provider-form">
+      <input type="hidden" id="edit-index" />
+      <input type="text" id="id" placeholder="ID" required />
+      <input type="text" id="name" placeholder="Nom" required />
+      <input type="text" id="tagline" placeholder="Tagline" />
+      <input type="number" id="price" placeholder="Prix" step="0.01" />
+      <input type="number" id="rating" placeholder="Note" step="0.1" />
+      <input type="text" id="domains" placeholder="Domaines (séparés par ,)" />
+      <input type="text" id="features" placeholder="Fonctionnalités (séparées par ,)" />
+      <input type="url" id="url" placeholder="URL" />
+      <button type="submit">Enregistrer</button>
+    </form>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

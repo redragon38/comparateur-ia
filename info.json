@@ -6,19 +6,9 @@
     "short": "Générateur de contenus IA orienté SEO et marketing avec ton de marque et collaboration. Inclut un chatbot pour accélérer briefs, articles, emails et pages commerciales.",
     "website": "https://www.jasper.ai",
     "logo": "/partners/jasper.png",
-    "categories": [
-      "Rédaction"
-    ],
-    "tags": [
-      "Générateurs Textes",
-      "SEO",
-      "Rédaction"
-    ],
-    "languages": [
-      "fr",
-      "en",
-      "es"
-    ],
+    "categories": "Rédaction",
+    "tags": "Générarteurs Textes, SEO, Rédaction",
+    "languages": "fr, en, es",
     "pricing": {
       "from": 39,
       "currency": "EUR"
@@ -34,8 +24,8 @@
     "hasReview": true,
     "verified": false,
     "featured": true,
-    "alternatives": [],
-    "updatedAt": "2025-10-09",
+    "alternatives": "",
+    "updatedAt": "2025-10-19",
     "highlight": "Templates marketing puissants",
     "description": "IA de rédaction premium orientée marketing."
   },

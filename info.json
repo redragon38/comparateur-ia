@@ -1,5 +1,261 @@
 [
   {
+    "id": "pika",
+    "slug": "pika",
+    "name": "Pika Labs",
+    "short": "Génération vidéo créative avec styles variés, effets et rendu artistique. Simple à prendre en main pour explorations rapides.",
+    "website": "https://pika.art/",
+    "logo": "/partners/pika.png",
+    "categories": "Vidéo",
+    "tags": "Générateurs Vidéos, Text-to-video",
+    "languages": "en",
+    "pricing": {
+      "from": 10,
+      "currency": "EUR"
+    },
+    "affiliateUrl": "https://pika.art/?ref=comparateur-ia",
+    "status": "published",
+    "source": "éditeur",
+    "rating": {
+      "value": 4.7,
+      "count": 32
+    },
+    "ranking": 5,
+    "hasReview": true,
+    "verified": false,
+    "featured": false,
+    "alternatives": "",
+    "updatedAt": "2025-10-19",
+    "highlight": "IA créative pour génération stylisée",
+    "description": "Génération vidéo créative avec styles variés et effets."
+  },
+  {
+    "id": "jasper",
+    "slug": "jasper",
+    "name": "Jasper AI",
+    "short": "Générateur de contenus IA orienté SEO et marketing avec ton de marque et collaboration. Inclut un chatbot pour accélérer briefs, articles, emails et pages commerciales.",
+    "website": "https://www.jasper.ai",
+    "logo": "/partners/jasper.png",
+    "categories": "Rédaction",
+    "tags": "Générarteurs Textes, SEO, Rédaction",
+    "languages": "fr, en, es",
+    "pricing": {
+      "from": 39,
+      "currency": "EUR"
+    },
+    "affiliateUrl": "https://www.jasper.ai/?ref=comparateur-ia",
+    "status": "published",
+    "source": "éditeur",
+    "rating": {
+      "value": 4.9,
+      "count": 55
+    },
+    "ranking": 4,
+    "hasReview": true,
+    "verified": false,
+    "featured": true,
+    "alternatives": "",
+    "updatedAt": "2025-10-19",
+    "highlight": "Templates marketing puissants",
+    "description": "IA de rédaction premium orientée marketing."
+  },
+  {
+    "id": "copilot",
+    "slug": "copilot",
+    "name": "Microsoft Copilot",
+    "partner": "microsoft_copilot",
+    "categories": [
+      "Assistants"
+    ],
+    "website": "https://www.microsoft.com/en-us/microsoft-365/copilot",
+    "affiliateUrl": "https://www.microsoft.com/en-us/microsoft-365/copilot/?ref=comparateur-ia",
+    "logo": "/partners/copilot.png",
+    "description": "Assistant IA intégré à Word, Excel, Outlook et Teams.",
+    "short": "Assistant intégré à Microsoft 365 (Word, Excel, Outlook, Teams). Aide à automatiser, résumer et rédiger dans la suite Office.",
+    "highlight": "Intégré à Microsoft 365",
+    "price": "10 €/mois (365)",
+    "priceMonthly": 10,
+    "priceCurrency": "EUR",
+    "pricing": {
+      "from": 10,
+      "currency": "EUR"
+    },
+    "trial": true,
+    "languages": [
+      "FR",
+      "EN",
+      "ES",
+      "DE"
+    ],
+    "tags": [
+      "Assistants",
+      "Productivité"
+    ],
+    "rating": {
+      "value": 4.9,
+      "count": 79
+    },
+    "ranking": 4,
+    "status": "published",
+    "source": "éditeur",
+    "hasReview": true,
+    "verified": false,
+    "featured": false,
+    "alternatives": [],
+    "strengths": [
+      "__Intégration native__ dans Windows, Edge et Microsoft 365.",
+      "__Productivité__ : résumés de mails/documents, génération de textes, aide dans Excel/PowerPoint.",
+      "__Bon niveau FR__ pour les usages courants, ton professionnel.",
+      "__Sécurité/administration__ alignées sur l’écosystème Microsoft (pour les organisations).",
+      "__Flux web__ dans Edge : réponses contextualisées à la page consultée."
+    ],
+    "strengthShort": [
+      "Intégration Office",
+      "Bon pour productivité"
+    ],
+    "limitations": [
+      "__Dépendance écosystème__ : valeur maximale si vous êtes déjà dans Microsoft 365.",
+      "__Style parfois générique__ sans contraintes/exemples (prévoir few-shot & directives).",
+      "__Vérification nécessaire__ sur les faits sensibles (comme tout LLM).",
+      "__Variabilité__ des capacités selon modules/comptes (gratuit, Pro, entreprise)."
+    ],
+    "limitationsShort": [
+      "Nécessite abonnement 365",
+      "Fonctions varient par app"
+    ],
+    "idealFor": [
+      "__Utilisateurs Microsoft 365__ (Word, Excel, Outlook, Teams)",
+      "__Productivité__ Windows/Edge (résumés, captures, web)",
+      "__Rédaction__ et reformulation en français",
+      "__Automatisations légères__ et aide contextuelle dans les documents"
+    ],
+    "notFor": [
+      "Équipes __centrées Google Workspace__ (voir Gemini)",
+      "Besoin __source-first__ avec citations systématiques (voir Perplexity)",
+      "Contexte __ultra long__ et consignes très nuancées (voir Claude)",
+      "Approche __ouverte/on-prem__ (voir Mistral)"
+    ],
+    "verdict": "Microsoft Copilot est un __choix naturel__ si votre équipe vit dans __Microsoft 365__ : il apporte une aide contextuelle dans les apps clés et fluidifie les tâches du quotidien (rédaction, résumés, organisation). Pour un usage en dehors de l’écosystème Microsoft, des assistants plus __agnostiques__ comme ChatGPT ou __Claude__ restent très compétitifs.",
+    "readMore": [
+      {
+        "href": "/guides/alternatives-chatgpt",
+        "title": "Alternatives à ChatGPT",
+        "desc": "Claude, Gemini, Mistral, Perplexity…"
+      },
+      {
+        "href": "/guides/top-ia-gratuites",
+        "title": "Top IA gratuites",
+        "desc": "Outils vraiment utilisables sans abonnement."
+      },
+      {
+        "href": "/avis/chatgpt",
+        "title": "Avis ChatGPT",
+        "desc": "Polyvalent, quotidien, aide au code."
+      },
+      {
+        "href": "/avis/claude",
+        "title": "Avis Claude",
+        "desc": "Contexte long et nuance en FR."
+      }
+    ],
+    "faq": [
+      {
+        "q": "Copilot fonctionne-t-il bien en français ?",
+        "a": "Oui, le français est bien géré pour les usages courants (rédaction, résumés, Office)."
+      },
+      {
+        "q": "Quelle différence entre Copilot et ChatGPT ?",
+        "a": "Copilot brille par son intégration à Microsoft 365, Windows et Edge. ChatGPT reste très polyvalent hors écosystèmes."
+      },
+      {
+        "q": "Copilot est-il adapté à un usage pro ?",
+        "a": "Oui, surtout si votre organisation utilise Microsoft 365 : gestion, sécurité et administration centralisées."
+      },
+      {
+        "q": "Quelles alternatives à Copilot ?",
+        "a": "ChatGPT (polyvalence), Claude (contexte long/nuance), Gemini (écosystème Google), Perplexity (recherche sourcée), Mistral (ouvert/Europe)."
+      }
+    ],
+    "updatedAt": "2025-10-19"
+  },
+  {
+    "id": "tomoviee",
+    "slug": "tomoviee",
+    "name": "ToMoviee AI",
+    "partner": "tomoviee",
+    "categories": [
+      "Vidéo",
+      "Images"
+    ],
+    "website": "https://www.tomoviee.ai/",
+    "affiliateUrl": "https://www.tomoviee.ai/?ref=comparateur-ia",
+    "logo": "/partners/tomoviee.png",
+    "og": "/partners/og/tomoviee.png",
+    "description": "Tomoviee est un studio créatif tout-en-un alimenté par l’intelligence artificielle. Il permet de générer facilement des vidéos, images, musiques et voix réalistes à partir de simples idées ou scripts. Grâce à sa technologie Text-to-Video, vous pouvez transformer vos textes en vidéos professionnelles prêtes à partager. Idéal pour les créateurs, marketeurs et entreprises souhaitant produire du contenu de qualité sans compétences techniques.",
+    "short": "Le studio IA complet pour vos créations. Transformez vos idées en vidéos, images, musiques et voix réalistes en quelques secondes. Essayez aussi la fonction Text-to-Video !",
+    "highlight": "Création IA tout-en-un • Text-to-Video avancé • Résultats professionnels instantanés",
+    "price": "7,99 €/mois",
+    "priceMonthly": 7.99,
+    "priceCurrency": "EUR",
+    "pricing": {
+      "from": 7.99,
+      "currency": "EUR"
+    },
+    "trial": true,
+    "languages": [
+      "EN",
+      "ES"
+    ],
+    "tags": [
+      "Générateurs Images",
+      "Générateurs Vidéos"
+    ],
+    "rating": {
+      "value": 4.8,
+      "count": 10
+    },
+    "ranking": 4,
+    "status": "published",
+    "source": "éditeur",
+    "selection": false,
+    "featured": false,
+    "verified": false,
+    "isaffiliate": false,
+    "hasReview": false,
+    "updatedAt": "2025-10-16",
+    "createdAt": "2025-10-16"
+  },
+  {
+    "id": "writesonic",
+    "slug": "writesonic",
+    "name": "Writesonic",
+    "short": "Plateforme de rédaction IA au très bon rapport qualité/prix pour blogs et pages. Nombreux prompts, exports simples et outils utiles pour équipes marketing.",
+    "website": "https://writesonic.com/",
+    "logo": "/partners/writesonic.png",
+    "categories": "Rédaction",
+    "tags": "Générateurs Textes, SEO, Rédaction",
+    "languages": "fr, en",
+    "pricing": {
+      "from": 20,
+      "currency": "EUR"
+    },
+    "affiliateUrl": "https://www.writesonic.com/?ref=comparateur-ia",
+    "status": "published",
+    "source": "éditeur",
+    "rating": {
+      "value": 4.8,
+      "count": 32
+    },
+    "ranking": 4,
+    "hasReview": true,
+    "verified": false,
+    "featured": false,
+    "alternatives": "test",
+    "updatedAt": "2025-10-19",
+    "highlight": "Excellent rapport qualité/prix",
+    "description": "Très bon rapport qualité/prix pour blogs et pages."
+  },
+  {
     "id": "thumbnailcreator",
     "slug": "thumbnailcreator",
     "name": "ThumbnailCreator",
@@ -37,34 +293,43 @@
     "description": ""
   },
   {
-    "id": "pika",
-    "slug": "pika",
-    "name": "Pika Labs",
-    "short": "Génération vidéo créative avec styles variés, effets et rendu artistique. Simple à prendre en main pour explorations rapides.",
-    "website": "https://pika.art/",
-    "logo": "/partners/pika.png",
-    "categories": "Vidéo",
-    "tags": "Générateurs Vidéos, Text-to-video",
-    "languages": "en",
+    "id": "semrush",
+    "slug": "semrush",
+    "name": "Semrush AI SEO Toolkit",
+    "short": "Voyez votre classement IA et faites-le progresser. Semrush analyse, génère et recommande contenus, mots-clés et backlinks pour booster votre visibilité.",
+    "website": "https://www.semrush.com/?ref=comparateur-ia",
+    "logo": "/partners/semrush.png",
+    "categories": [
+      "Rédaction"
+    ],
+    "tags": [
+      "SEO"
+    ],
+    "languages": [
+      "fr",
+      "en"
+    ],
     "pricing": {
-      "from": 10,
-      "currency": "EUR"
+      "from": 99,
+      "currency": "USD"
     },
-    "affiliateUrl": "https://pika.art/?ref=comparateur-ia",
+    "affiliateUrl": "https://www.semrush.com/?ref=comparateur-ia",
     "status": "published",
     "source": "éditeur",
     "rating": {
       "value": 4.7,
-      "count": 32
+      "count": 10
     },
-    "ranking": 5,
-    "hasReview": true,
-    "verified": false,
+    "ranking": 10,
+    "selection": false,
     "featured": false,
-    "alternatives": "",
-    "updatedAt": "2025-10-19",
-    "highlight": "IA créative pour génération stylisée",
-    "description": "Génération vidéo créative avec styles variés et effets."
+    "verified": false,
+    "isaffiliate": false,
+    "hasReview": false,
+    "updatedAt": "2025-10-10",
+    "createdAt": "2025-10-10",
+    "highlight": "Voyez votre position dans les recherches IA et faites-la progresser en quelques actions clés.",
+    "description": ""
   },
   {
     "id": "midjourney",
@@ -170,53 +435,6 @@
     "updatedAt": "2025-10-09",
     "highlight": "Très bon rendu du TEXTE dans l’image",
     "description": "Spécialisé pour du texte lisible dans les visuels."
-  },
-  {
-    "id": "tomoviee",
-    "slug": "tomoviee",
-    "name": "ToMoviee AI",
-    "partner": "tomoviee",
-    "categories": [
-      "Vidéo",
-      "Images"
-    ],
-    "website": "https://www.tomoviee.ai/",
-    "affiliateUrl": "https://www.tomoviee.ai/?ref=comparateur-ia",
-    "logo": "/partners/tomoviee.png",
-    "og": "/partners/og/tomoviee.png",
-    "description": "Tomoviee est un studio créatif tout-en-un alimenté par l’intelligence artificielle. Il permet de générer facilement des vidéos, images, musiques et voix réalistes à partir de simples idées ou scripts. Grâce à sa technologie Text-to-Video, vous pouvez transformer vos textes en vidéos professionnelles prêtes à partager. Idéal pour les créateurs, marketeurs et entreprises souhaitant produire du contenu de qualité sans compétences techniques.",
-    "short": "Le studio IA complet pour vos créations. Transformez vos idées en vidéos, images, musiques et voix réalistes en quelques secondes. Essayez aussi la fonction Text-to-Video !",
-    "highlight": "Création IA tout-en-un • Text-to-Video avancé • Résultats professionnels instantanés",
-    "price": "7,99 €/mois",
-    "priceMonthly": 7.99,
-    "priceCurrency": "EUR",
-    "pricing": {
-      "from": 7.99,
-      "currency": "EUR"
-    },
-    "trial": true,
-    "languages": [
-      "EN",
-      "ES"
-    ],
-    "tags": [
-      "Générateurs Images",
-      "Générateurs Vidéos"
-    ],
-    "rating": {
-      "value": 4.8,
-      "count": 10
-    },
-    "ranking": 4,
-    "status": "published",
-    "source": "éditeur",
-    "selection": false,
-    "featured": false,
-    "verified": false,
-    "isaffiliate": false,
-    "hasReview": false,
-    "updatedAt": "2025-10-16",
-    "createdAt": "2025-10-16"
   },
   {
     "id": "podcast-adobe",
@@ -483,45 +701,6 @@
     "description": "Découpage automatique de longs formats en clips courts avec sous-titres."
   },
   {
-    "id": "writesonic",
-    "slug": "writesonic",
-    "name": "Writesonic",
-    "short": "Plateforme de rédaction IA au très bon rapport qualité/prix pour blogs et pages. Nombreux prompts, exports simples et outils utiles pour équipes marketing.",
-    "website": "https://writesonic.com/",
-    "logo": "/partners/writesonic.png",
-    "categories": [
-      "Rédaction"
-    ],
-    "tags": [
-      "Générateurs Textes",
-      "SEO",
-      "Rédaction"
-    ],
-    "languages": [
-      "fr",
-      "en"
-    ],
-    "pricing": {
-      "from": 20,
-      "currency": "EUR"
-    },
-    "affiliateUrl": "https://www.writesonic.com/?ref=comparateur-ia",
-    "status": "published",
-    "source": "éditeur",
-    "rating": {
-      "value": 4.8,
-      "count": 32
-    },
-    "ranking": 4,
-    "hasReview": true,
-    "verified": false,
-    "featured": false,
-    "alternatives": [],
-    "updatedAt": "2025-10-11",
-    "highlight": "Excellent rapport qualité/prix",
-    "description": "Très bon rapport qualité/prix pour blogs et pages."
-  },
-  {
     "id": "claude",
     "slug": "claude",
     "name": "Claude",
@@ -784,45 +963,6 @@
     "description": "Générateur de texte simple et économique pour besoins basiques."
   },
   {
-    "id": "semrush",
-    "slug": "semrush",
-    "name": "Semrush AI SEO Toolkit",
-    "short": "Voyez votre classement IA et faites-le progresser. Semrush analyse, génère et recommande contenus, mots-clés et backlinks pour booster votre visibilité.",
-    "website": "https://www.semrush.com/?ref=comparateur-ia",
-    "logo": "/partners/semrush.png",
-    "categories": [
-      "Rédaction"
-    ],
-    "tags": [
-      "SEO"
-    ],
-    "languages": [
-      "fr",
-      "en"
-    ],
-    "pricing": {
-      "from": 99,
-      "currency": "USD"
-    },
-    "affiliateUrl": "https://www.semrush.com/?ref=comparateur-ia",
-    "status": "published",
-    "source": "éditeur",
-    "rating": {
-      "value": 4.7,
-      "count": 10
-    },
-    "ranking": 10,
-    "selection": false,
-    "featured": false,
-    "verified": false,
-    "isaffiliate": false,
-    "hasReview": false,
-    "updatedAt": "2025-10-10",
-    "createdAt": "2025-10-10",
-    "highlight": "Voyez votre position dans les recherches IA et faites-la progresser en quelques actions clés.",
-    "description": ""
-  },
-  {
     "id": "leonardo-ai",
     "slug": "leonardo-ai",
     "name": "Leonardo AI",
@@ -1046,36 +1186,6 @@
     "description": "Montage audio/vidéo en éditant le texte, doublage et sous-titres automatiques."
   },
   {
-    "id": "jasper",
-    "slug": "jasper",
-    "name": "Jasper AI",
-    "short": "Générateur de contenus IA orienté SEO et marketing avec ton de marque et collaboration. Inclut un chatbot pour accélérer briefs, articles, emails et pages commerciales.",
-    "website": "https://www.jasper.ai",
-    "logo": "/partners/jasper.png",
-    "categories": "Rédaction",
-    "tags": "Générarteurs Textes, SEO, Rédaction",
-    "languages": "fr, en, es",
-    "pricing": {
-      "from": 39,
-      "currency": "EUR"
-    },
-    "affiliateUrl": "https://www.jasper.ai/?ref=comparateur-ia",
-    "status": "published",
-    "source": "éditeur",
-    "rating": {
-      "value": 4.9,
-      "count": 55
-    },
-    "ranking": 4,
-    "hasReview": true,
-    "verified": false,
-    "featured": true,
-    "alternatives": "",
-    "updatedAt": "2025-10-19",
-    "highlight": "Templates marketing puissants",
-    "description": "IA de rédaction premium orientée marketing."
-  },
-  {
     "id": "canva",
     "slug": "canva",
     "name": "Canva AI",
@@ -1110,125 +1220,6 @@
     "updatedAt": "2025-10-09",
     "highlight": "Génération intégrée + design & templates",
     "description": "IA d’images directement dans l’éditeur Canva."
-  },
-  {
-    "id": "copilot",
-    "slug": "copilot",
-    "name": "Microsoft Copilot",
-    "partner": "microsoft_copilot",
-    "categories": [
-      "Assistants"
-    ],
-    "website": "https://www.microsoft.com/en-us/microsoft-365/copilot",
-    "affiliateUrl": "https://www.microsoft.com/en-us/microsoft-365/copilot/?ref=comparateur-ia",
-    "logo": "/partners/copilot.png",
-    "description": "Assistant IA intégré à Word, Excel, Outlook et Teams.",
-    "short": "Assistant intégré à Microsoft 365 (Word, Excel, Outlook, Teams). Aide à automatiser, résumer et rédiger dans la suite Office.",
-    "highlight": "Intégré à Microsoft 365",
-    "price": "10 €/mois (365)",
-    "priceMonthly": 10,
-    "priceCurrency": "EUR",
-    "pricing": {
-      "from": 10,
-      "currency": "EUR"
-    },
-    "trial": true,
-    "languages": [
-      "FR",
-      "EN",
-      "ES",
-      "DE"
-    ],
-    "tags": [
-      "Assistants",
-      "Productivité"
-    ],
-    "rating": {
-      "value": 4.9,
-      "count": 79
-    },
-    "ranking": 4,
-    "status": "published",
-    "source": "éditeur",
-    "hasReview": true,
-    "verified": false,
-    "featured": false,
-    "alternatives": [],
-    "strengths": [
-      "__Intégration native__ dans Windows, Edge et Microsoft 365.",
-      "__Productivité__ : résumés de mails/documents, génération de textes, aide dans Excel/PowerPoint.",
-      "__Bon niveau FR__ pour les usages courants, ton professionnel.",
-      "__Sécurité/administration__ alignées sur l’écosystème Microsoft (pour les organisations).",
-      "__Flux web__ dans Edge : réponses contextualisées à la page consultée."
-    ],
-    "strengthShort": [
-      "Intégration Office",
-      "Bon pour productivité"
-    ],
-    "limitations": [
-      "__Dépendance écosystème__ : valeur maximale si vous êtes déjà dans Microsoft 365.",
-      "__Style parfois générique__ sans contraintes/exemples (prévoir few-shot & directives).",
-      "__Vérification nécessaire__ sur les faits sensibles (comme tout LLM).",
-      "__Variabilité__ des capacités selon modules/comptes (gratuit, Pro, entreprise)."
-    ],
-    "limitationsShort": [
-      "Nécessite abonnement 365",
-      "Fonctions varient par app"
-    ],
-    "idealFor": [
-      "__Utilisateurs Microsoft 365__ (Word, Excel, Outlook, Teams)",
-      "__Productivité__ Windows/Edge (résumés, captures, web)",
-      "__Rédaction__ et reformulation en français",
-      "__Automatisations légères__ et aide contextuelle dans les documents"
-    ],
-    "notFor": [
-      "Équipes __centrées Google Workspace__ (voir Gemini)",
-      "Besoin __source-first__ avec citations systématiques (voir Perplexity)",
-      "Contexte __ultra long__ et consignes très nuancées (voir Claude)",
-      "Approche __ouverte/on-prem__ (voir Mistral)"
-    ],
-    "verdict": "Microsoft Copilot est un __choix naturel__ si votre équipe vit dans __Microsoft 365__ : il apporte une aide contextuelle dans les apps clés et fluidifie les tâches du quotidien (rédaction, résumés, organisation). Pour un usage en dehors de l’écosystème Microsoft, des assistants plus __agnostiques__ comme ChatGPT ou __Claude__ restent très compétitifs.",
-    "readMore": [
-      {
-        "href": "/guides/alternatives-chatgpt",
-        "title": "Alternatives à ChatGPT",
-        "desc": "Claude, Gemini, Mistral, Perplexity…"
-      },
-      {
-        "href": "/guides/top-ia-gratuites",
-        "title": "Top IA gratuites",
-        "desc": "Outils vraiment utilisables sans abonnement."
-      },
-      {
-        "href": "/avis/chatgpt",
-        "title": "Avis ChatGPT",
-        "desc": "Polyvalent, quotidien, aide au code."
-      },
-      {
-        "href": "/avis/claude",
-        "title": "Avis Claude",
-        "desc": "Contexte long et nuance en FR."
-      }
-    ],
-    "faq": [
-      {
-        "q": "Copilot fonctionne-t-il bien en français ?",
-        "a": "Oui, le français est bien géré pour les usages courants (rédaction, résumés, Office)."
-      },
-      {
-        "q": "Quelle différence entre Copilot et ChatGPT ?",
-        "a": "Copilot brille par son intégration à Microsoft 365, Windows et Edge. ChatGPT reste très polyvalent hors écosystèmes."
-      },
-      {
-        "q": "Copilot est-il adapté à un usage pro ?",
-        "a": "Oui, surtout si votre organisation utilise Microsoft 365 : gestion, sécurité et administration centralisées."
-      },
-      {
-        "q": "Quelles alternatives à Copilot ?",
-        "a": "ChatGPT (polyvalence), Claude (contexte long/nuance), Gemini (écosystème Google), Perplexity (recherche sourcée), Mistral (ouvert/Europe)."
-      }
-    ],
-    "updatedAt": "2025-10-19"
   },
   {
     "id": "elevenlabs",

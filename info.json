@@ -1,185 +1,70 @@
 [
   {
-    "id": "jasper",
-    "slug": "jasper",
-    "name": "Jasper AI",
-    "short": "Générateur de contenus IA orienté SEO et marketing avec ton de marque et collaboration. Inclut un chatbot pour accélérer briefs, articles, emails et pages commerciales.",
-    "website": "https://www.jasper.ai",
-    "logo": "/partners/jasper.png",
-    "categories": "Rédaction",
-    "tags": "Générateurs Textes, SEO, Rédaction",
-    "languages": "fr, en, es",
-    "pricing": {
-      "from": 39,
-      "currency": "EUR"
-    },
-    "affiliateUrl": "https://www.jasper.ai/?ref=comparateur-ia",
-    "status": "published",
-    "source": "éditeur",
-    "rating": {
-      "value": 4.9,
-      "count": 55
-    },
-    "ranking": 4,
-    "hasReview": true,
-    "verified": false,
-    "featured": true,
-    "alternatives": "",
-    "updatedAt": "2025-10-19",
-    "highlight": "Templates marketing puissants",
-    "description": "IA de rédaction premium orientée marketing."
-  },
-  {
-    "id": "copyai",
-    "slug": "copyai",
-    "name": "Copy.ai",
-    "short": "Assistant IA pour contenus marketing et créatifs : idées, emails, posts sociaux, landing pages. Interface simple, nombreux modèles, plan gratuit pour démarrer efficacement.",
-    "website": "https://www.copy.ai",
-    "affiliateUrl": "https://www.copy.ai/?ref=comparateur-ia",
-    "logo": "/partners/copyai.png",
+    "id": "thumbnailcreator",
+    "slug": "thumbnailcreator",
+    "name": "ThumbnailCreator",
+    "short": "Créez des miniatures percutantes en un clin d’œil pour YouTube, Twitch et Facebook. Boostez vos vues et améliorez le taux de clics de vos vidéos, sans effort.",
+    "website": "https://www.thumbnailcreator.com/?ref=comparateur-ia",
+    "logo": "/partners/thumbnailcreator.png",
     "categories": [
-      "Rédaction"
+      "Images"
     ],
     "tags": [
-      "Générateurs Textes",
-      "SEO",
-      "Rédaction"
+      "Générateurs Images",
+      "Réseaux Sociaux"
     ],
     "languages": [
-      "fr",
-      "en"
-    ],
-    "pricing": {
-      "from": 29,
-      "currency": "USD"
-    },
-    "status": "published",
-    "source": "éditeur",
-    "rating": {
-      "value": 4.9,
-      "count": 32
-    },
-    "ranking": 4,
-    "hasReview": true,
-    "verified": false,
-    "featured": false,
-    "alternatives": [],
-    "updatedAt": "2025-10-09",
-    "highlight": "Idéation ultra rapide",
-    "description": "Idéal pour idées, titres et hooks marketing."
-  },
-  {
-    "id": "rytr",
-    "slug": "rytr",
-    "name": "Rytr",
-    "short": "Assistant rédactionnel abordable pour produire rapidement blogs, emails et descriptions. Nombreux modèles, corrections basiques, idéal budgets serrés et premiers pas en IA.",
-    "website": "https://rytr.me",
-    "affiliateUrl": "https://www.rytr.me/?ref=comparateur-ia",
-    "logo": "/partners/rytr.png",
-    "categories": [
-      "Rédaction"
-    ],
-    "tags": [
-      "Générateurs Textes",
-      "SEO",
-      "Rédaction"
-    ],
-    "languages": [
-      "fr",
       "en"
     ],
     "pricing": {
       "from": 9,
-      "currency": "EUR"
-    },
-    "status": "published",
-    "source": "éditeur",
-    "rating": {
-      "value": 4.8,
-      "count": 10
-    },
-    "ranking": 4,
-    "hasReview": true,
-    "verified": false,
-    "featured": false,
-    "alternatives": [],
-    "updatedAt": "2025-10-09",
-    "highlight": "Ultra abordable pour petits projets",
-    "description": "Générateur de texte simple et économique pour besoins basiques."
-  },
-  {
-    "id": "vidnoz",
-    "slug": "vidnoz",
-    "name": "Vidnoz",
-    "short": "Plateforme vidéo avec avatars IA réalistes, voix de synthèse et modèles prêts. Créez présentations, tutoriels et teasers multilingues en minutes, orientée productivité.",
-    "website": "https://www.vidnoz.com",
-    "logo": "/partners/vidnoz.png",
-    "categories": [
-      "Vidéo"
-    ],
-    "tags": [
-      "Générateurs Vidéos",
-      "Avatars"
-    ],
-    "languages": [
-      "fr",
-      "en"
-    ],
-    "pricing": {
-      "from": 18.49,
-      "currency": "EUR"
-    },
-    "affiliateUrl": "https://www.vidnoz.com/?ref=comparateur-ia",
-    "status": "published",
-    "source": "éditeur",
-    "rating": {
-      "value": 4.9,
-      "count": 78
-    },
-    "ranking": 4,
-    "hasReview": true,
-    "verified": false,
-    "featured": false,
-    "alternatives": [],
-    "updatedAt": "2025-10-09",
-    "highlight": "Avatars IA & génération de vidéos rapides",
-    "description": "Création de vidéos avec avatars IA, sous-titres et voix off en quelques minutes."
-  },
-  {
-    "id": "runway",
-    "slug": "runway",
-    "name": "Runway",
-    "short": "Suite créative IA pour générer, modifier et styliser vidéos et images. Gen-2, effacement d’objets, relighting, texte-vers-vidéo et workflows adaptés aux créateurs.",
-    "website": "https://runwayml.com",
-    "affiliateUrl": "https://www.runwayml.com/?ref=comparateur-ia",
-    "logo": "/partners/runway.png",
-    "categories": [
-      "Vidéo"
-    ],
-    "tags": [
-      "Vidéo"
-    ],
-    "languages": [
-      "en"
-    ],
-    "pricing": {
-      "from": 12,
       "currency": "USD"
     },
+    "affiliateUrl": "https://www.thumbnailcreator.com/?ref=comparateur-ia",
     "status": "published",
     "source": "éditeur",
     "rating": {
-      "value": 4.8,
+      "value": 4.7,
       "count": 10
     },
-    "ranking": 4,
-    "hasReview": true,
+    "ranking": 10,
+    "hasReview": false,
     "verified": false,
     "featured": false,
     "alternatives": [],
-    "updatedAt": "2025-10-09",
-    "highlight": "Texte → vidéo & effets IA créatifs",
-    "description": "Génération et montage vidéo assistés par IA avec effets et outils créatifs."
+    "updatedAt": "2025-10-10",
+    "highlight": "Des miniatures qui cliquent. Plus vite. Plus beau. Plus de vues.",
+    "description": ""
+  },
+  {
+    "id": "pika",
+    "slug": "pika",
+    "name": "Pika Labs",
+    "short": "Génération vidéo créative avec styles variés, effets et rendu artistique. Simple à prendre en main pour explorations rapides.",
+    "website": "https://pika.art/",
+    "logo": "/partners/pika.png",
+    "categories": "Vidéo",
+    "tags": "Générateurs Vidéos, Text-to-video",
+    "languages": "en",
+    "pricing": {
+      "from": 10,
+      "currency": "EUR"
+    },
+    "affiliateUrl": "https://pika.art/?ref=comparateur-ia",
+    "status": "published",
+    "source": "éditeur",
+    "rating": {
+      "value": 4.7,
+      "count": 32
+    },
+    "ranking": 5,
+    "hasReview": true,
+    "verified": false,
+    "featured": false,
+    "alternatives": "",
+    "updatedAt": "2025-10-19",
+    "highlight": "IA créative pour génération stylisée",
+    "description": "Génération vidéo créative avec styles variés et effets."
   },
   {
     "id": "midjourney",
@@ -218,26 +103,25 @@
     "description": "Génération d’images hautement esthétique, prompts riches."
   },
   {
-    "id": "stable_diffusion",
-    "slug": "stable-diffusion",
-    "name": "Stability AI (Stable Diffusion)",
-    "short": "Modèle open-source de génération d’images, extensible avec checkpoints et LoRA. Local ou hébergé, idéal personnalisation, contrôle créatif et coûts maîtrisés.",
-    "website": "https://stability.ai",
-    "affiliateUrl": "https://www.stability.ai/?ref=comparateur-ia",
-    "logo": "/partners/stable-diffusion.png",
+    "id": "runway",
+    "slug": "runway",
+    "name": "Runway",
+    "short": "Suite créative IA pour générer, modifier et styliser vidéos et images. Gen-2, effacement d’objets, relighting, texte-vers-vidéo et workflows adaptés aux créateurs.",
+    "website": "https://runwayml.com",
+    "affiliateUrl": "https://www.runwayml.com/?ref=comparateur-ia",
+    "logo": "/partners/runway.png",
     "categories": [
-      "Audio"
+      "Vidéo"
     ],
     "tags": [
-      "Audio"
+      "Vidéo"
     ],
     "languages": [
-      "fr",
       "en"
     ],
     "pricing": {
-      "from": 0,
-      "currency": "EUR"
+      "from": 12,
+      "currency": "USD"
     },
     "status": "published",
     "source": "éditeur",
@@ -251,32 +135,27 @@
     "featured": false,
     "alternatives": [],
     "updatedAt": "2025-10-09",
-    "highlight": "Open-source, contrôle fin via A1111/ComfyUI",
-    "description": "Modèle open-source populaire, hautement personnalisable."
+    "highlight": "Texte → vidéo & effets IA créatifs",
+    "description": "Génération et montage vidéo assistés par IA avec effets et outils créatifs."
   },
   {
-    "id": "play-ht",
-    "slug": "play-ht",
-    "name": "Play.ht",
-    "short": "Synthèse vocale réaliste avec nombreuses langues et voix. Clonage vocal, API, contrôle du rythme et des pauses pour podcasts, vidéos, e-learning et démos.",
-    "website": "https://play.ht",
-    "logo": "/partners/play-ht.png",
+    "id": "ideogram",
+    "slug": "ideogram",
+    "name": "Ideogram",
+    "short": "Spécialisé dans le texte lisible intégré aux visuels. Utile pour logos, affiches et créations typographiques originales.",
+    "website": "https://ideogram.ai/",
+    "affiliateUrl": "https://www.ideogram.ai/?ref=comparateur-ia",
+    "logo": "/partners/ideogram.png",
     "categories": [
-      "Audio"
+      "Images"
     ],
     "tags": [
-      "TTS",
-      "Audio"
+      "Générateurs Images",
+      "Création Logo"
     ],
     "languages": [
-      "fr",
       "en"
     ],
-    "pricing": {
-      "from": 29,
-      "currency": "USD"
-    },
-    "affiliateUrl": "https://play.ht/?ref=comparateur-ia",
     "status": "published",
     "source": "éditeur",
     "rating": {
@@ -289,36 +168,80 @@
     "featured": false,
     "alternatives": [],
     "updatedAt": "2025-10-09",
-    "highlight": "Grand choix de voix & styles",
-    "description": "Bibliothèque de voix, styles variés, API et outils d’édition."
+    "highlight": "Très bon rendu du TEXTE dans l’image",
+    "description": "Spécialisé pour du texte lisible dans les visuels."
   },
   {
-    "id": "claude",
-    "slug": "claude",
-    "name": "Claude",
-    "short": "Assistant conversationnel d’Anthropic axé sécurité et contexte long. Excellent pour rédaction, analyse, résumés, code et agents. Interface claire, bons résultats en français.",
-    "website": "https://claude.ai",
-    "affiliateUrl": "https://www.claude.ai/?ref=comparateur-ia",
-    "logo": "/partners/claude.png",
+    "id": "tomoviee",
+    "slug": "tomoviee",
+    "name": "ToMoviee AI",
+    "partner": "tomoviee",
     "categories": [
-      "Assistants"
+      "Vidéo",
+      "Images"
     ],
-    "tags": [
-      "Assistants"
-    ],
-    "languages": [
-      "fr",
-      "en"
-    ],
+    "website": "https://www.tomoviee.ai/",
+    "affiliateUrl": "https://www.tomoviee.ai/?ref=comparateur-ia",
+    "logo": "/partners/tomoviee.png",
+    "og": "/partners/og/tomoviee.png",
+    "description": "Tomoviee est un studio créatif tout-en-un alimenté par l’intelligence artificielle. Il permet de générer facilement des vidéos, images, musiques et voix réalistes à partir de simples idées ou scripts. Grâce à sa technologie Text-to-Video, vous pouvez transformer vos textes en vidéos professionnelles prêtes à partager. Idéal pour les créateurs, marketeurs et entreprises souhaitant produire du contenu de qualité sans compétences techniques.",
+    "short": "Le studio IA complet pour vos créations. Transformez vos idées en vidéos, images, musiques et voix réalistes en quelques secondes. Essayez aussi la fonction Text-to-Video !",
+    "highlight": "Création IA tout-en-un • Text-to-Video avancé • Résultats professionnels instantanés",
+    "price": "7,99 €/mois",
+    "priceMonthly": 7.99,
+    "priceCurrency": "EUR",
     "pricing": {
-      "from": 0,
+      "from": 7.99,
       "currency": "EUR"
     },
+    "trial": true,
+    "languages": [
+      "EN",
+      "ES"
+    ],
+    "tags": [
+      "Générateurs Images",
+      "Générateurs Vidéos"
+    ],
+    "rating": {
+      "value": 4.8,
+      "count": 10
+    },
+    "ranking": 4,
+    "status": "published",
+    "source": "éditeur",
+    "selection": false,
+    "featured": false,
+    "verified": false,
+    "isaffiliate": false,
+    "hasReview": false,
+    "updatedAt": "2025-10-16",
+    "createdAt": "2025-10-16"
+  },
+  {
+    "id": "podcast-adobe",
+    "slug": "podcast-adobe",
+    "name": "Adobe Podcast",
+    "short": "Amélioration audio (Enhance Speech) et enregistrement web. Outils rapides pour nettoyer la voix et produire des podcasts clairs.",
+    "website": "https://podcast.adobe.com/",
+    "logo": "/partners/podcast-adobe.png",
+    "categories": [
+      "Audio"
+    ],
+    "tags": [
+      "Podcast",
+      "Audio"
+    ],
+    "languages": [
+      "en",
+      "fr"
+    ],
+    "affiliateUrl": "https://podcast.adobe.com/?ref=comparateur-ia",
     "status": "published",
     "source": "éditeur",
     "rating": {
       "value": 4.9,
-      "count": 55
+      "count": 10
     },
     "ranking": 4,
     "hasReview": true,
@@ -326,47 +249,47 @@
     "featured": false,
     "alternatives": [],
     "updatedAt": "2025-10-09",
-    "highlight": "Excellente compréhension contextuelle",
-    "description": "Assistant conversationnel orienté sécurité et contexte long."
+    "highlight": "Amélioration audio & studio web",
+    "description": "Enhance Speech, enregistrement web, outils d’édition rapides."
   },
   {
-    "id": "writesonic",
-    "slug": "writesonic",
-    "name": "Writesonic",
-    "short": "Plateforme de rédaction IA au très bon rapport qualité/prix pour blogs et pages. Nombreux prompts, exports simples et outils utiles pour équipes marketing.",
-    "website": "https://writesonic.com/",
-    "logo": "/partners/writesonic.png",
+    "id": "scalenut",
+    "slug": "scalenut",
+    "name": "Scalenut",
+    "short": "Plateforme tout-en-un mêlant recherche de mots-clés, briefs et optimisation on-page. Convient aux équipes SEO orientées production régulière.",
+    "website": "https://www.scalenut.com/",
+    "logo": "/partners/scalenut.png",
     "categories": [
       "Rédaction"
     ],
     "tags": [
-      "Générateurs Textes",
-      "SEO",
-      "Rédaction"
+      "Marketing",
+      "Rédaction",
+      "SEO"
     ],
     "languages": [
-      "fr",
-      "en"
+      "en",
+      "fr"
     ],
     "pricing": {
-      "from": 20,
+      "from": 39,
       "currency": "EUR"
     },
-    "affiliateUrl": "https://www.writesonic.com/?ref=comparateur-ia",
+    "affiliateUrl": "https://www.scalenut.com/?ref=comparateur-ia",
     "status": "published",
     "source": "éditeur",
     "rating": {
-      "value": 4.8,
-      "count": 32
+      "value": 4.7,
+      "count": 10
     },
     "ranking": 4,
     "hasReview": true,
     "verified": false,
     "featured": false,
     "alternatives": [],
-    "updatedAt": "2025-10-11",
-    "highlight": "Excellent rapport qualité/prix",
-    "description": "Très bon rapport qualité/prix pour blogs et pages."
+    "updatedAt": "2025-10-09",
+    "highlight": "Outil SEO + IA tout-en-un",
+    "description": "Planification, rédaction et optimisation SEO centralisées."
   },
   {
     "id": "frase",
@@ -447,67 +370,27 @@
     "description": "Suite de rédaction multilingue avec bons modèles FR/DE."
   },
   {
-    "id": "scalenut",
-    "slug": "scalenut",
-    "name": "Scalenut",
-    "short": "Plateforme tout-en-un mêlant recherche de mots-clés, briefs et optimisation on-page. Convient aux équipes SEO orientées production régulière.",
-    "website": "https://www.scalenut.com/",
-    "logo": "/partners/scalenut.png",
+    "id": "perplexity",
+    "slug": "perplexity",
+    "name": "Perplexity AI",
+    "short": "Assistant de recherche qui cite ses sources et croise IA + web. Très utile pour veille et réponses sourcées rapides.",
+    "website": "https://www.perplexity.ai/",
+    "logo": "/partners/perplexity.png",
     "categories": [
-      "Rédaction"
+      "Assistants"
     ],
     "tags": [
-      "Marketing",
-      "Rédaction",
-      "SEO"
-    ],
-    "languages": [
-      "en",
-      "fr"
-    ],
-    "pricing": {
-      "from": 39,
-      "currency": "EUR"
-    },
-    "affiliateUrl": "https://www.scalenut.com/?ref=comparateur-ia",
-    "status": "published",
-    "source": "éditeur",
-    "rating": {
-      "value": 4.7,
-      "count": 10
-    },
-    "ranking": 4,
-    "hasReview": true,
-    "verified": false,
-    "featured": false,
-    "alternatives": [],
-    "updatedAt": "2025-10-09",
-    "highlight": "Outil SEO + IA tout-en-un",
-    "description": "Planification, rédaction et optimisation SEO centralisées."
-  },
-  {
-    "id": "descript",
-    "slug": "descript",
-    "name": "Descript",
-    "short": "Montage audio/vidéo en éditant le texte, sous-titres automatiques et doublage. Excellent pour podcasts, interviews et vidéos pédagogiques.",
-    "website": "https://www.descript.com/",
-    "logo": "/partners/descript.png",
-    "categories": [
-      "Vidéo"
-    ],
-    "tags": [
-      "Montage Vidéo"
+      "Assistants"
     ],
     "languages": [
       "fr",
-      "en",
-      "es"
+      "en"
     ],
     "pricing": {
-      "from": 12,
+      "from": 20,
       "currency": "EUR"
     },
-    "affiliateUrl": "https://www.descript.com/?ref=comparateur-ia",
+    "affiliateUrl": "https://www.perplexity.ai/?ref=comparateur-ia",
     "status": "published",
     "source": "éditeur",
     "rating": {
@@ -520,33 +403,70 @@
     "featured": false,
     "alternatives": [],
     "updatedAt": "2025-10-09",
-    "highlight": "Montage par texte & sous-titres auto",
-    "description": "Montage audio/vidéo en éditant le texte, doublage et sous-titres automatiques."
+    "highlight": "Assistant orienté recherche avec sources",
+    "description": "Chatbot qui cite ses sources et combine IA + web search."
   },
   {
-    "id": "synthesia",
-    "slug": "synthesia",
-    "name": "Synthesia",
-    "short": "Création de vidéos avec avatars IA réalistes et voix multilingues. Idéale pour formation, support et présentations localisées.",
-    "website": "https://www.synthesia.io/",
-    "logo": "/partners/synthesia.png",
+    "id": "vidnoz",
+    "slug": "vidnoz",
+    "name": "Vidnoz",
+    "short": "Plateforme vidéo avec avatars IA réalistes, voix de synthèse et modèles prêts. Créez présentations, tutoriels et teasers multilingues en minutes, orientée productivité.",
+    "website": "https://www.vidnoz.com",
+    "logo": "/partners/vidnoz.png",
     "categories": [
       "Vidéo"
     ],
     "tags": [
       "Générateurs Vidéos",
-      "Marketing"
+      "Avatars"
     ],
     "languages": [
       "fr",
-      "en",
-      "es"
+      "en"
     ],
     "pricing": {
-      "from": 22,
+      "from": 18.49,
       "currency": "EUR"
     },
-    "affiliateUrl": "https://www.synthesia.io/?ref=comparateur-ia",
+    "affiliateUrl": "https://www.vidnoz.com/?ref=comparateur-ia",
+    "status": "published",
+    "source": "éditeur",
+    "rating": {
+      "value": 4.9,
+      "count": 78
+    },
+    "ranking": 4,
+    "hasReview": true,
+    "verified": false,
+    "featured": false,
+    "alternatives": [],
+    "updatedAt": "2025-10-09",
+    "highlight": "Avatars IA & génération de vidéos rapides",
+    "description": "Création de vidéos avec avatars IA, sous-titres et voix off en quelques minutes."
+  },
+  {
+    "id": "opusclip",
+    "slug": "opusclip",
+    "name": "OpusClip",
+    "short": "Découpe automatique de longues vidéos en clips courts avec détection de moments clés et sous-titres intégrés. Idéal shorts, reels, TikTok.",
+    "website": "https://www.opus.pro/",
+    "logo": "/partners/opusclip.png",
+    "categories": [
+      "Vidéo"
+    ],
+    "tags": [
+      "Vidéo",
+      "Réseaux Sociaux"
+    ],
+    "languages": [
+      "fr",
+      "en"
+    ],
+    "pricing": {
+      "from": 9,
+      "currency": "EUR"
+    },
+    "affiliateUrl": "https://www.opus.pro/?ref=comparateur-ia",
     "status": "published",
     "source": "éditeur",
     "rating": {
@@ -559,8 +479,382 @@
     "featured": false,
     "alternatives": [],
     "updatedAt": "2025-10-09",
-    "highlight": "Avatars réalistes multilingues",
-    "description": "Création de vidéos avec avatars IA réalistes et voix de synthèse multilingues."
+    "highlight": "Découpe auto pour shorts & reels",
+    "description": "Découpage automatique de longs formats en clips courts avec sous-titres."
+  },
+  {
+    "id": "writesonic",
+    "slug": "writesonic",
+    "name": "Writesonic",
+    "short": "Plateforme de rédaction IA au très bon rapport qualité/prix pour blogs et pages. Nombreux prompts, exports simples et outils utiles pour équipes marketing.",
+    "website": "https://writesonic.com/",
+    "logo": "/partners/writesonic.png",
+    "categories": [
+      "Rédaction"
+    ],
+    "tags": [
+      "Générateurs Textes",
+      "SEO",
+      "Rédaction"
+    ],
+    "languages": [
+      "fr",
+      "en"
+    ],
+    "pricing": {
+      "from": 20,
+      "currency": "EUR"
+    },
+    "affiliateUrl": "https://www.writesonic.com/?ref=comparateur-ia",
+    "status": "published",
+    "source": "éditeur",
+    "rating": {
+      "value": 4.8,
+      "count": 32
+    },
+    "ranking": 4,
+    "hasReview": true,
+    "verified": false,
+    "featured": false,
+    "alternatives": [],
+    "updatedAt": "2025-10-11",
+    "highlight": "Excellent rapport qualité/prix",
+    "description": "Très bon rapport qualité/prix pour blogs et pages."
+  },
+  {
+    "id": "claude",
+    "slug": "claude",
+    "name": "Claude",
+    "short": "Assistant conversationnel d’Anthropic axé sécurité et contexte long. Excellent pour rédaction, analyse, résumés, code et agents. Interface claire, bons résultats en français.",
+    "website": "https://claude.ai",
+    "affiliateUrl": "https://www.claude.ai/?ref=comparateur-ia",
+    "logo": "/partners/claude.png",
+    "categories": [
+      "Assistants"
+    ],
+    "tags": [
+      "Assistants"
+    ],
+    "languages": [
+      "fr",
+      "en"
+    ],
+    "pricing": {
+      "from": 0,
+      "currency": "EUR"
+    },
+    "status": "published",
+    "source": "éditeur",
+    "rating": {
+      "value": 4.9,
+      "count": 55
+    },
+    "ranking": 4,
+    "hasReview": true,
+    "verified": false,
+    "featured": false,
+    "alternatives": [],
+    "updatedAt": "2025-10-09",
+    "highlight": "Excellente compréhension contextuelle",
+    "description": "Assistant conversationnel orienté sécurité et contexte long."
+  },
+  {
+    "id": "play-ht",
+    "slug": "play-ht",
+    "name": "Play.ht",
+    "short": "Synthèse vocale réaliste avec nombreuses langues et voix. Clonage vocal, API, contrôle du rythme et des pauses pour podcasts, vidéos, e-learning et démos.",
+    "website": "https://play.ht",
+    "logo": "/partners/play-ht.png",
+    "categories": [
+      "Audio"
+    ],
+    "tags": [
+      "TTS",
+      "Audio"
+    ],
+    "languages": [
+      "fr",
+      "en"
+    ],
+    "pricing": {
+      "from": 29,
+      "currency": "USD"
+    },
+    "affiliateUrl": "https://play.ht/?ref=comparateur-ia",
+    "status": "published",
+    "source": "éditeur",
+    "rating": {
+      "value": 4.7,
+      "count": 10
+    },
+    "ranking": 4,
+    "hasReview": true,
+    "verified": false,
+    "featured": false,
+    "alternatives": [],
+    "updatedAt": "2025-10-09",
+    "highlight": "Grand choix de voix & styles",
+    "description": "Bibliothèque de voix, styles variés, API et outils d’édition."
+  },
+  {
+    "id": "copyai",
+    "slug": "copyai",
+    "name": "Copy.ai",
+    "short": "Assistant IA pour contenus marketing et créatifs : idées, emails, posts sociaux, landing pages. Interface simple, nombreux modèles, plan gratuit pour démarrer efficacement.",
+    "website": "https://www.copy.ai",
+    "affiliateUrl": "https://www.copy.ai/?ref=comparateur-ia",
+    "logo": "/partners/copyai.png",
+    "categories": [
+      "Rédaction"
+    ],
+    "tags": [
+      "Générateurs Textes",
+      "SEO",
+      "Rédaction"
+    ],
+    "languages": [
+      "fr",
+      "en"
+    ],
+    "pricing": {
+      "from": 29,
+      "currency": "USD"
+    },
+    "status": "published",
+    "source": "éditeur",
+    "rating": {
+      "value": 4.9,
+      "count": 32
+    },
+    "ranking": 4,
+    "hasReview": true,
+    "verified": false,
+    "featured": false,
+    "alternatives": [],
+    "updatedAt": "2025-10-09",
+    "highlight": "Idéation ultra rapide",
+    "description": "Idéal pour idées, titres et hooks marketing."
+  },
+  {
+    "id": "mistral",
+    "slug": "mistral",
+    "name": "Mistral AI",
+    "short": "Modèles IA européens, orientation open-source et API. Français natif performant, intéressant pour projets sur-mesure et autonomie.",
+    "website": "https://mistral.ai/",
+    "affiliateUrl": "https://mistral.ai/?ref=comparateur-ia",
+    "logo": "/partners/mistral.png",
+    "categories": [
+      "Assistants"
+    ],
+    "tags": [
+      "Assistants",
+      "Productivité"
+    ],
+    "languages": [
+      "fr",
+      "en"
+    ],
+    "status": "published",
+    "source": "éditeur",
+    "rating": {
+      "value": 4.9,
+      "count": 32
+    },
+    "ranking": 4,
+    "hasReview": true,
+    "verified": false,
+    "featured": false,
+    "alternatives": [],
+    "updatedAt": "2025-10-09",
+    "highlight": "Modèle open-source européen",
+    "description": "Modèles open-source et API IA français/européens."
+  },
+  {
+    "id": "stable_diffusion",
+    "slug": "stable-diffusion",
+    "name": "Stability AI (Stable Diffusion)",
+    "short": "Modèle open-source de génération d’images, extensible avec checkpoints et LoRA. Local ou hébergé, idéal personnalisation, contrôle créatif et coûts maîtrisés.",
+    "website": "https://stability.ai",
+    "affiliateUrl": "https://www.stability.ai/?ref=comparateur-ia",
+    "logo": "/partners/stable-diffusion.png",
+    "categories": [
+      "Audio"
+    ],
+    "tags": [
+      "Audio"
+    ],
+    "languages": [
+      "fr",
+      "en"
+    ],
+    "pricing": {
+      "from": 0,
+      "currency": "EUR"
+    },
+    "status": "published",
+    "source": "éditeur",
+    "rating": {
+      "value": 4.8,
+      "count": 10
+    },
+    "ranking": 4,
+    "hasReview": true,
+    "verified": false,
+    "featured": false,
+    "alternatives": [],
+    "updatedAt": "2025-10-09",
+    "highlight": "Open-source, contrôle fin via A1111/ComfyUI",
+    "description": "Modèle open-source populaire, hautement personnalisable."
+  },
+  {
+    "id": "murf-ai",
+    "slug": "murf-ai",
+    "name": "Murf AI",
+    "short": "Studio voix off simple pour marketing, e-learning et démos. Bon équilibre entre qualité, contrôle de la prosodie et facilité d’usage.",
+    "website": "https://murf.ai/",
+    "logo": "/partners/murf-ai.png",
+    "categories": [
+      "Audio"
+    ],
+    "tags": [
+      "Clonage de voix",
+      "Lecture Vocale (TTS)"
+    ],
+    "languages": [
+      "fr",
+      "en"
+    ],
+    "pricing": {
+      "from": 23,
+      "currency": "EUR"
+    },
+    "affiliateUrl": "https://murf.ai/?ref=comparateur-ia",
+    "status": "published",
+    "source": "éditeur",
+    "rating": {
+      "value": 4.7,
+      "count": 11
+    },
+    "ranking": 4,
+    "hasReview": true,
+    "verified": false,
+    "featured": true,
+    "alternatives": [],
+    "updatedAt": "2025-10-09",
+    "highlight": "Studio voix off simple",
+    "description": "Voix off marketing, e-learning et démos produit."
+  },
+  {
+    "id": "rytr",
+    "slug": "rytr",
+    "name": "Rytr",
+    "short": "Assistant rédactionnel abordable pour produire rapidement blogs, emails et descriptions. Nombreux modèles, corrections basiques, idéal budgets serrés et premiers pas en IA.",
+    "website": "https://rytr.me",
+    "affiliateUrl": "https://www.rytr.me/?ref=comparateur-ia",
+    "logo": "/partners/rytr.png",
+    "categories": [
+      "Rédaction"
+    ],
+    "tags": [
+      "Générateurs Textes",
+      "SEO",
+      "Rédaction"
+    ],
+    "languages": [
+      "fr",
+      "en"
+    ],
+    "pricing": {
+      "from": 9,
+      "currency": "EUR"
+    },
+    "status": "published",
+    "source": "éditeur",
+    "rating": {
+      "value": 4.8,
+      "count": 10
+    },
+    "ranking": 4,
+    "hasReview": true,
+    "verified": false,
+    "featured": false,
+    "alternatives": [],
+    "updatedAt": "2025-10-09",
+    "highlight": "Ultra abordable pour petits projets",
+    "description": "Générateur de texte simple et économique pour besoins basiques."
+  },
+  {
+    "id": "semrush",
+    "slug": "semrush",
+    "name": "Semrush AI SEO Toolkit",
+    "short": "Voyez votre classement IA et faites-le progresser. Semrush analyse, génère et recommande contenus, mots-clés et backlinks pour booster votre visibilité.",
+    "website": "https://www.semrush.com/?ref=comparateur-ia",
+    "logo": "/partners/semrush.png",
+    "categories": [
+      "Rédaction"
+    ],
+    "tags": [
+      "SEO"
+    ],
+    "languages": [
+      "fr",
+      "en"
+    ],
+    "pricing": {
+      "from": 99,
+      "currency": "USD"
+    },
+    "affiliateUrl": "https://www.semrush.com/?ref=comparateur-ia",
+    "status": "published",
+    "source": "éditeur",
+    "rating": {
+      "value": 4.7,
+      "count": 10
+    },
+    "ranking": 10,
+    "selection": false,
+    "featured": false,
+    "verified": false,
+    "isaffiliate": false,
+    "hasReview": false,
+    "updatedAt": "2025-10-10",
+    "createdAt": "2025-10-10",
+    "highlight": "Voyez votre position dans les recherches IA et faites-la progresser en quelques actions clés.",
+    "description": ""
+  },
+  {
+    "id": "leonardo-ai",
+    "slug": "leonardo-ai",
+    "name": "Leonardo AI",
+    "short": "Interface claire avec presets, workflows et upscale intégrés. Bon équilibre entre simplicité et qualité pour créatifs et marketeurs.",
+    "website": "https://leonardo.ai/",
+    "affiliateUrl": "https://www.leonardo.ai/?ref=comparateur-ia",
+    "logo": "/partners/leonardo.png",
+    "categories": [
+      "Images"
+    ],
+    "tags": [
+      "Générateurs Images",
+      "Modèle 3D"
+    ],
+    "languages": [
+      "fr",
+      "en"
+    ],
+    "status": "published",
+    "source": "éditeur",
+    "rating": {
+      "value": 4.9,
+      "count": 101
+    },
+    "ranking": 4,
+    "hasReview": true,
+    "verified": false,
+    "featured": false,
+    "alternatives": [],
+    "updatedAt": "2025-10-09",
+    "highlight": "Workflows simples, bons modèles et upscale",
+    "description": "Interface claire, presets utiles et pipeline de génération."
   },
   {
     "id": "veed",
@@ -602,279 +896,29 @@
     "description": "Montage rapide orienté réseaux sociaux, sous-titres automatiques et exports faciles."
   },
   {
-    "id": "capcut",
-    "slug": "capcut",
-    "name": "CapCut",
-    "short": "Suite gratuite mobile/desktop pour clips courts. Modèles sociaux, effets simples et synchronisation avec TikTok pour publier vite.",
-    "website": "https://www.capcut.com/",
-    "logo": "/partners/capcut.png",
-    "categories": [
-      "Vidéo"
-    ],
-    "tags": [
-      "Vidéo"
-    ],
-    "languages": [
-      "fr",
-      "en",
-      "zh"
-    ],
-    "pricing": {
-      "from": 0,
-      "currency": "EUR"
-    },
-    "affiliateUrl": "https://www.capcut.com/?ref=comparateur-ia",
-    "status": "published",
-    "source": "éditeur",
-    "rating": {
-      "value": 4.8,
-      "count": 33
-    },
-    "ranking": 4,
-    "hasReview": true,
-    "verified": false,
-    "featured": false,
-    "alternatives": [],
-    "updatedAt": "2025-10-09",
-    "highlight": "Montage rapide sur mobile & TikTok",
-    "description": "Suite mobile/desktop gratuite axée contenus courts et sociaux."
-  },
-  {
-    "id": "heygen",
-    "slug": "heygen",
-    "name": "HeyGen",
-    "short": "Avatars présentateurs réalistes, clonage de voix et localisation pour créer des vidéos marketing, formations et démos multi-langues.",
-    "website": "https://www.heygen.com/",
-    "logo": "/partners/heygen.png",
-    "categories": [
-      "Vidéo"
-    ],
-    "tags": [
-      "Générateurs Vidéos"
-    ],
-    "languages": [
-      "fr",
-      "en",
-      "es",
-      "zh"
-    ],
-    "pricing": {
-      "from": 29,
-      "currency": "EUR"
-    },
-    "affiliateUrl": "https://www.heygen.com/?ref=comparateur-ia",
-    "status": "published",
-    "source": "éditeur",
-    "rating": {
-      "value": 4.8,
-      "count": 10
-    },
-    "ranking": 4,
-    "hasReview": true,
-    "verified": false,
-    "featured": false,
-    "alternatives": [],
-    "updatedAt": "2025-10-09",
-    "highlight": "Avatars IA réalistes pour présentations",
-    "description": "Avatars présentateurs IA et clonage de voix pour localiser des vidéos."
-  },
-  {
-    "id": "pika",
-    "slug": "pika",
-    "name": "Pika Labs",
-    "short": "Génération vidéo créative avec styles variés, effets et rendu artistique. Simple à prendre en main pour explorations rapides.",
-    "website": "https://pika.art/",
-    "logo": "/partners/pika.png",
+    "id": "synthesia",
+    "slug": "synthesia",
+    "name": "Synthesia",
+    "short": "Création de vidéos avec avatars IA réalistes et voix multilingues. Idéale pour formation, support et présentations localisées.",
+    "website": "https://www.synthesia.io/",
+    "logo": "/partners/synthesia.png",
     "categories": [
       "Vidéo"
     ],
     "tags": [
       "Générateurs Vidéos",
-      "Text-to-video"
-    ],
-    "languages": [
-      "en"
-    ],
-    "pricing": {
-      "from": 10,
-      "currency": "EUR"
-    },
-    "affiliateUrl": "https://pika.art/?ref=comparateur-ia",
-    "status": "published",
-    "source": "éditeur",
-    "rating": {
-      "value": 4.7,
-      "count": 32
-    },
-    "ranking": 4,
-    "hasReview": true,
-    "verified": false,
-    "featured": false,
-    "alternatives": [],
-    "updatedAt": "2025-10-09",
-    "highlight": "IA créative pour génération stylisée",
-    "description": "Génération vidéo créative avec styles variés et effets."
-  },
-  {
-    "id": "opusclip",
-    "slug": "opusclip",
-    "name": "OpusClip",
-    "short": "Découpe automatique de longues vidéos en clips courts avec détection de moments clés et sous-titres intégrés. Idéal shorts, reels, TikTok.",
-    "website": "https://www.opus.pro/",
-    "logo": "/partners/opusclip.png",
-    "categories": [
-      "Vidéo"
-    ],
-    "tags": [
-      "Vidéo",
-      "Réseaux Sociaux"
-    ],
-    "languages": [
-      "fr",
-      "en"
-    ],
-    "pricing": {
-      "from": 9,
-      "currency": "EUR"
-    },
-    "affiliateUrl": "https://www.opus.pro/?ref=comparateur-ia",
-    "status": "published",
-    "source": "éditeur",
-    "rating": {
-      "value": 4.7,
-      "count": 10
-    },
-    "ranking": 4,
-    "hasReview": true,
-    "verified": false,
-    "featured": false,
-    "alternatives": [],
-    "updatedAt": "2025-10-09",
-    "highlight": "Découpe auto pour shorts & reels",
-    "description": "Découpage automatique de longs formats en clips courts avec sous-titres."
-  },
-  {
-    "id": "leonardo-ai",
-    "slug": "leonardo-ai",
-    "name": "Leonardo AI",
-    "short": "Interface claire avec presets, workflows et upscale intégrés. Bon équilibre entre simplicité et qualité pour créatifs et marketeurs.",
-    "website": "https://leonardo.ai/",
-    "affiliateUrl": "https://www.leonardo.ai/?ref=comparateur-ia",
-    "logo": "/partners/leonardo.png",
-    "categories": [
-      "Images"
-    ],
-    "tags": [
-      "Générateurs Images",
-      "Modèle 3D"
-    ],
-    "languages": [
-      "fr",
-      "en"
-    ],
-    "status": "published",
-    "source": "éditeur",
-    "rating": {
-      "value": 4.9,
-      "count": 101
-    },
-    "ranking": 4,
-    "hasReview": true,
-    "verified": false,
-    "featured": false,
-    "alternatives": [],
-    "updatedAt": "2025-10-09",
-    "highlight": "Workflows simples, bons modèles et upscale",
-    "description": "Interface claire, presets utiles et pipeline de génération."
-  },
-  {
-    "id": "adobe-firefly",
-    "slug": "adobe-firefly",
-    "name": "Adobe Firefly",
-    "short": "Génération et édition d’images intégrées à Creative Cloud. Prompts conviviaux, outils pro et compatibilité avec Photoshop/Illustrator.",
-    "website": "https://www.adobe.com/products/firefly.html",
-    "affiliateUrl": "https://www.adobe.com/products/firefly.html/?ref=comparateur-ia",
-    "logo": "/partners/adobe-firefly.png",
-    "categories": [
-      "Vidéo"
-    ],
-    "tags": [
-      "Générateurs Vidéos"
+      "Marketing"
     ],
     "languages": [
       "fr",
       "en",
       "es"
     ],
-    "status": "published",
-    "source": "éditeur",
-    "rating": {
-      "value": 4.9,
-      "count": 56
+    "pricing": {
+      "from": 22,
+      "currency": "EUR"
     },
-    "ranking": 4,
-    "hasReview": true,
-    "verified": false,
-    "featured": true,
-    "alternatives": [],
-    "updatedAt": "2025-10-09",
-    "highlight": "Intégration Creative Cloud, prompts conviviaux",
-    "description": "Génération & édition d’images intégrées à l’écosystème Adobe."
-  },
-  {
-    "id": "canva",
-    "slug": "canva",
-    "name": "Canva AI",
-    "short": "Génération d’images directement dans l’éditeur Canva. Très simple avec nombreux modèles et exports pour réseaux sociaux.",
-    "website": "https://www.canva.com/",
-    "affiliateUrl": "https://www.canva.com/?ref=comparateur-ia",
-    "logo": "/partners/canva.png",
-    "categories": [
-      "Images"
-    ],
-    "tags": [
-      "Productivité",
-      "Design"
-    ],
-    "languages": [
-      "fr",
-      "en",
-      "es",
-      "de"
-    ],
-    "status": "published",
-    "source": "éditeur",
-    "rating": {
-      "value": 4.9,
-      "count": 32
-    },
-    "ranking": 4,
-    "hasReview": true,
-    "verified": false,
-    "featured": false,
-    "alternatives": [],
-    "updatedAt": "2025-10-09",
-    "highlight": "Génération intégrée + design & templates",
-    "description": "IA d’images directement dans l’éditeur Canva."
-  },
-  {
-    "id": "ideogram",
-    "slug": "ideogram",
-    "name": "Ideogram",
-    "short": "Spécialisé dans le texte lisible intégré aux visuels. Utile pour logos, affiches et créations typographiques originales.",
-    "website": "https://ideogram.ai/",
-    "affiliateUrl": "https://www.ideogram.ai/?ref=comparateur-ia",
-    "logo": "/partners/ideogram.png",
-    "categories": [
-      "Images"
-    ],
-    "tags": [
-      "Générateurs Images",
-      "Création Logo"
-    ],
-    "languages": [
-      "en"
-    ],
+    "affiliateUrl": "https://www.synthesia.io/?ref=comparateur-ia",
     "status": "published",
     "source": "éditeur",
     "rating": {
@@ -887,160 +931,8 @@
     "featured": false,
     "alternatives": [],
     "updatedAt": "2025-10-09",
-    "highlight": "Très bon rendu du TEXTE dans l’image",
-    "description": "Spécialisé pour du texte lisible dans les visuels."
-  },
-  {
-    "id": "elevenlabs",
-    "slug": "elevenlabs",
-    "name": "ElevenLabs",
-    "short": "Synthèse vocale très naturelle avec clonage et voix de marque. API robuste pour podcasts, vidéos, e-learning et assistants.",
-    "website": "https://elevenlabs.io/",
-    "logo": "/partners/elevenlabs.png",
-    "categories": [
-      "Audio"
-    ],
-    "tags": [
-      "Musique"
-    ],
-    "languages": [
-      "fr",
-      "en",
-      "es",
-      "de"
-    ],
-    "pricing": {
-      "from": 10,
-      "currency": "EUR"
-    },
-    "affiliateUrl": "https://elevenlabs.io/?ref=comparateur-ia",
-    "status": "published",
-    "source": "éditeur",
-    "rating": {
-      "value": 4.7,
-      "count": 10
-    },
-    "ranking": 4,
-    "hasReview": true,
-    "verified": false,
-    "featured": false,
-    "alternatives": [],
-    "updatedAt": "2025-10-09",
-    "highlight": "TTS naturel + clonage de voix",
-    "description": "Voix de synthèse très naturelles, clonage et voix de marque."
-  },
-  {
-    "id": "murf-ai",
-    "slug": "murf-ai",
-    "name": "Murf AI",
-    "short": "Studio voix off simple pour marketing, e-learning et démos. Bon équilibre entre qualité, contrôle de la prosodie et facilité d’usage.",
-    "website": "https://murf.ai/",
-    "logo": "/partners/murf-ai.png",
-    "categories": [
-      "Audio"
-    ],
-    "tags": [
-      "Clonage de voix",
-      "Lecture Vocale (TTS)"
-    ],
-    "languages": [
-      "fr",
-      "en"
-    ],
-    "pricing": {
-      "from": 23,
-      "currency": "EUR"
-    },
-    "affiliateUrl": "https://murf.ai/?ref=comparateur-ia",
-    "status": "published",
-    "source": "éditeur",
-    "rating": {
-      "value": 4.7,
-      "count": 11
-    },
-    "ranking": 4,
-    "hasReview": true,
-    "verified": false,
-    "featured": true,
-    "alternatives": [],
-    "updatedAt": "2025-10-09",
-    "highlight": "Studio voix off simple",
-    "description": "Voix off marketing, e-learning et démos produit."
-  },
-  {
-    "id": "podcast-adobe",
-    "slug": "podcast-adobe",
-    "name": "Adobe Podcast",
-    "short": "Amélioration audio (Enhance Speech) et enregistrement web. Outils rapides pour nettoyer la voix et produire des podcasts clairs.",
-    "website": "https://podcast.adobe.com/",
-    "logo": "/partners/podcast-adobe.png",
-    "categories": [
-      "Audio"
-    ],
-    "tags": [
-      "Podcast",
-      "Audio"
-    ],
-    "languages": [
-      "en",
-      "fr"
-    ],
-    "affiliateUrl": "https://podcast.adobe.com/?ref=comparateur-ia",
-    "status": "published",
-    "source": "éditeur",
-    "rating": {
-      "value": 4.9,
-      "count": 10
-    },
-    "ranking": 4,
-    "hasReview": true,
-    "verified": false,
-    "featured": false,
-    "alternatives": [],
-    "updatedAt": "2025-10-09",
-    "highlight": "Amélioration audio & studio web",
-    "description": "Enhance Speech, enregistrement web, outils d’édition rapides."
-  },
-  {
-    "id": "chatgpt",
-    "slug": "chatgpt",
-    "name": "OpenAI (ChatGPT)",
-    "short": "Assistant polyvalent pour texte, code et productivité. Très accessible, bons plugins et navigation web selon plan.",
-    "website": "https://chat.openai.com/",
-    "logo": "/partners/chatgpt.png",
-    "categories": [
-      "Assistants"
-    ],
-    "tags": [
-      "Assistants",
-      "Productivité"
-    ],
-    "languages": [
-      "fr",
-      "en",
-      "es",
-      "de",
-      "zh"
-    ],
-    "pricing": {
-      "from": 20,
-      "currency": "EUR"
-    },
-    "affiliateUrl": "https://chat.openai.com/?ref=comparateur-ia",
-    "status": "published",
-    "source": "éditeur",
-    "rating": {
-      "value": 4.9,
-      "count": 101
-    },
-    "ranking": 4,
-    "hasReview": true,
-    "verified": false,
-    "featured": false,
-    "alternatives": [],
-    "updatedAt": "2025-10-09",
-    "highlight": "Polyvalent et accessible",
-    "description": "Assistant conversationnel d’OpenAI, utilisé pour texte, code et productivité."
+    "highlight": "Avatars réalistes multilingues",
+    "description": "Création de vidéos avec avatars IA réalistes et voix de synthèse multilingues."
   },
   {
     "id": "gemini",
@@ -1080,6 +972,144 @@
     "updatedAt": "2025-10-09",
     "highlight": "Fort dans l’écosystème Google",
     "description": "Assistant IA de Google, intégré à Docs, Gmail et Search."
+  },
+  {
+    "id": "adobe-firefly",
+    "slug": "adobe-firefly",
+    "name": "Adobe Firefly",
+    "short": "Génération et édition d’images intégrées à Creative Cloud. Prompts conviviaux, outils pro et compatibilité avec Photoshop/Illustrator.",
+    "website": "https://www.adobe.com/products/firefly.html",
+    "affiliateUrl": "https://www.adobe.com/products/firefly.html/?ref=comparateur-ia",
+    "logo": "/partners/adobe-firefly.png",
+    "categories": [
+      "Vidéo"
+    ],
+    "tags": [
+      "Générateurs Vidéos"
+    ],
+    "languages": [
+      "fr",
+      "en",
+      "es"
+    ],
+    "status": "published",
+    "source": "éditeur",
+    "rating": {
+      "value": 4.9,
+      "count": 56
+    },
+    "ranking": 4,
+    "hasReview": true,
+    "verified": false,
+    "featured": true,
+    "alternatives": [],
+    "updatedAt": "2025-10-09",
+    "highlight": "Intégration Creative Cloud, prompts conviviaux",
+    "description": "Génération & édition d’images intégrées à l’écosystème Adobe."
+  },
+  {
+    "id": "descript",
+    "slug": "descript",
+    "name": "Descript",
+    "short": "Montage audio/vidéo en éditant le texte, sous-titres automatiques et doublage. Excellent pour podcasts, interviews et vidéos pédagogiques.",
+    "website": "https://www.descript.com/",
+    "logo": "/partners/descript.png",
+    "categories": [
+      "Vidéo"
+    ],
+    "tags": [
+      "Montage Vidéo"
+    ],
+    "languages": [
+      "fr",
+      "en",
+      "es"
+    ],
+    "pricing": {
+      "from": 12,
+      "currency": "EUR"
+    },
+    "affiliateUrl": "https://www.descript.com/?ref=comparateur-ia",
+    "status": "published",
+    "source": "éditeur",
+    "rating": {
+      "value": 4.7,
+      "count": 10
+    },
+    "ranking": 4,
+    "hasReview": true,
+    "verified": false,
+    "featured": false,
+    "alternatives": [],
+    "updatedAt": "2025-10-09",
+    "highlight": "Montage par texte & sous-titres auto",
+    "description": "Montage audio/vidéo en éditant le texte, doublage et sous-titres automatiques."
+  },
+  {
+    "id": "jasper",
+    "slug": "jasper",
+    "name": "Jasper AI",
+    "short": "Générateur de contenus IA orienté SEO et marketing avec ton de marque et collaboration. Inclut un chatbot pour accélérer briefs, articles, emails et pages commerciales.",
+    "website": "https://www.jasper.ai",
+    "logo": "/partners/jasper.png",
+    "categories": "Rédaction",
+    "tags": "Générarteurs Textes, SEO, Rédaction",
+    "languages": "fr, en, es",
+    "pricing": {
+      "from": 39,
+      "currency": "EUR"
+    },
+    "affiliateUrl": "https://www.jasper.ai/?ref=comparateur-ia",
+    "status": "published",
+    "source": "éditeur",
+    "rating": {
+      "value": 4.9,
+      "count": 55
+    },
+    "ranking": 4,
+    "hasReview": true,
+    "verified": false,
+    "featured": true,
+    "alternatives": "",
+    "updatedAt": "2025-10-19",
+    "highlight": "Templates marketing puissants",
+    "description": "IA de rédaction premium orientée marketing."
+  },
+  {
+    "id": "canva",
+    "slug": "canva",
+    "name": "Canva AI",
+    "short": "Génération d’images directement dans l’éditeur Canva. Très simple avec nombreux modèles et exports pour réseaux sociaux.",
+    "website": "https://www.canva.com/",
+    "affiliateUrl": "https://www.canva.com/?ref=comparateur-ia",
+    "logo": "/partners/canva.png",
+    "categories": [
+      "Images"
+    ],
+    "tags": [
+      "Productivité",
+      "Design"
+    ],
+    "languages": [
+      "fr",
+      "en",
+      "es",
+      "de"
+    ],
+    "status": "published",
+    "source": "éditeur",
+    "rating": {
+      "value": 4.9,
+      "count": 32
+    },
+    "ranking": 4,
+    "hasReview": true,
+    "verified": false,
+    "featured": false,
+    "alternatives": [],
+    "updatedAt": "2025-10-09",
+    "highlight": "Génération intégrée + design & templates",
+    "description": "IA d’images directement dans l’éditeur Canva."
   },
   {
     "id": "copilot",
@@ -1201,13 +1231,51 @@
     "updatedAt": "2025-10-19"
   },
   {
-    "id": "mistral",
-    "slug": "mistral",
-    "name": "Mistral AI",
-    "short": "Modèles IA européens, orientation open-source et API. Français natif performant, intéressant pour projets sur-mesure et autonomie.",
-    "website": "https://mistral.ai/",
-    "affiliateUrl": "https://mistral.ai/?ref=comparateur-ia",
-    "logo": "/partners/mistral.png",
+    "id": "elevenlabs",
+    "slug": "elevenlabs",
+    "name": "ElevenLabs",
+    "short": "Synthèse vocale très naturelle avec clonage et voix de marque. API robuste pour podcasts, vidéos, e-learning et assistants.",
+    "website": "https://elevenlabs.io/",
+    "logo": "/partners/elevenlabs.png",
+    "categories": [
+      "Audio"
+    ],
+    "tags": [
+      "Musique"
+    ],
+    "languages": [
+      "fr",
+      "en",
+      "es",
+      "de"
+    ],
+    "pricing": {
+      "from": 10,
+      "currency": "EUR"
+    },
+    "affiliateUrl": "https://elevenlabs.io/?ref=comparateur-ia",
+    "status": "published",
+    "source": "éditeur",
+    "rating": {
+      "value": 4.7,
+      "count": 10
+    },
+    "ranking": 4,
+    "hasReview": true,
+    "verified": false,
+    "featured": false,
+    "alternatives": [],
+    "updatedAt": "2025-10-09",
+    "highlight": "TTS naturel + clonage de voix",
+    "description": "Voix de synthèse très naturelles, clonage et voix de marque."
+  },
+  {
+    "id": "chatgpt",
+    "slug": "chatgpt",
+    "name": "OpenAI (ChatGPT)",
+    "short": "Assistant polyvalent pour texte, code et productivité. Très accessible, bons plugins et navigation web selon plan.",
+    "website": "https://chat.openai.com/",
+    "logo": "/partners/chatgpt.png",
     "categories": [
       "Assistants"
     ],
@@ -1217,49 +1285,59 @@
     ],
     "languages": [
       "fr",
-      "en"
-    ],
-    "status": "published",
-    "source": "éditeur",
-    "rating": {
-      "value": 4.9,
-      "count": 32
-    },
-    "ranking": 4,
-    "hasReview": true,
-    "verified": false,
-    "featured": false,
-    "alternatives": [],
-    "updatedAt": "2025-10-09",
-    "highlight": "Modèle open-source européen",
-    "description": "Modèles open-source et API IA français/européens."
-  },
-  {
-    "id": "perplexity",
-    "slug": "perplexity",
-    "name": "Perplexity AI",
-    "short": "Assistant de recherche qui cite ses sources et croise IA + web. Très utile pour veille et réponses sourcées rapides.",
-    "website": "https://www.perplexity.ai/",
-    "logo": "/partners/perplexity.png",
-    "categories": [
-      "Assistants"
-    ],
-    "tags": [
-      "Assistants"
-    ],
-    "languages": [
-      "fr",
-      "en"
+      "en",
+      "es",
+      "de",
+      "zh"
     ],
     "pricing": {
       "from": 20,
       "currency": "EUR"
     },
-    "affiliateUrl": "https://www.perplexity.ai/?ref=comparateur-ia",
+    "affiliateUrl": "https://chat.openai.com/?ref=comparateur-ia",
     "status": "published",
     "source": "éditeur",
     "rating": {
-      "value": 4.7,
+      "value": 4.9,
+      "count": 101
+    },
+    "ranking": 4,
+    "hasReview": true,
+    "verified": false,
+    "featured": false,
+    "alternatives": [],
+    "updatedAt": "2025-10-09",
+    "highlight": "Polyvalent et accessible",
+    "description": "Assistant conversationnel d’OpenAI, utilisé pour texte, code et productivité."
+  },
+  {
+    "id": "heygen",
+    "slug": "heygen",
+    "name": "HeyGen",
+    "short": "Avatars présentateurs réalistes, clonage de voix et localisation pour créer des vidéos marketing, formations et démos multi-langues.",
+    "website": "https://www.heygen.com/",
+    "logo": "/partners/heygen.png",
+    "categories": [
+      "Vidéo"
+    ],
+    "tags": [
+      "Générateurs Vidéos"
+    ],
+    "languages": [
+      "fr",
+      "en",
+      "es",
+      "zh"
+    ],
+    "pricing": {
+      "from": 29,
+      "currency": "EUR"
+    },
+    "affiliateUrl": "https://www.heygen.com/?ref=comparateur-ia",
+    "status": "published",
+    "source": "éditeur",
+    "rating": {
+      "value": 4.8,
       "count": 10
     },
     "ranking": 4,
@@ -1268,130 +1346,45 @@
     "featured": false,
     "alternatives": [],
     "updatedAt": "2025-10-09",
-    "highlight": "Assistant orienté recherche avec sources",
-    "description": "Chatbot qui cite ses sources et combine IA + web search."
+    "highlight": "Avatars IA réalistes pour présentations",
+    "description": "Avatars présentateurs IA et clonage de voix pour localiser des vidéos."
   },
   {
-    "id": "thumbnailcreator",
-    "slug": "thumbnailcreator",
-    "name": "ThumbnailCreator",
-    "short": "Créez des miniatures percutantes en un clin d’œil pour YouTube, Twitch et Facebook. Boostez vos vues et améliorez le taux de clics de vos vidéos, sans effort.",
-    "website": "https://www.thumbnailcreator.com/?ref=comparateur-ia",
-    "logo": "/partners/thumbnailcreator.png",
+    "id": "capcut",
+    "slug": "capcut",
+    "name": "CapCut",
+    "short": "Suite gratuite mobile/desktop pour clips courts. Modèles sociaux, effets simples et synchronisation avec TikTok pour publier vite.",
+    "website": "https://www.capcut.com/",
+    "logo": "/partners/capcut.png",
     "categories": [
-      "Images"
+      "Vidéo"
     ],
     "tags": [
-      "Générateurs Images",
-      "Réseaux Sociaux"
-    ],
-    "languages": [
-      "en"
-    ],
-    "pricing": {
-      "from": 9,
-      "currency": "USD"
-    },
-    "affiliateUrl": "https://www.thumbnailcreator.com/?ref=comparateur-ia",
-    "status": "published",
-    "source": "éditeur",
-    "rating": {
-      "value": 4.7,
-      "count": 10
-    },
-    "ranking": 10,
-    "hasReview": false,
-    "verified": false,
-    "featured": false,
-    "alternatives": [],
-    "updatedAt": "2025-10-10",
-    "highlight": "Des miniatures qui cliquent. Plus vite. Plus beau. Plus de vues.",
-    "description": ""
-  },
-  {
-    "id": "semrush",
-    "slug": "semrush",
-    "name": "Semrush AI SEO Toolkit",
-    "short": "Voyez votre classement IA et faites-le progresser. Semrush analyse, génère et recommande contenus, mots-clés et backlinks pour booster votre visibilité.",
-    "website": "https://www.semrush.com/?ref=comparateur-ia",
-    "logo": "/partners/semrush.png",
-    "categories": [
-      "Rédaction"
-    ],
-    "tags": [
-      "SEO"
+      "Vidéo"
     ],
     "languages": [
       "fr",
-      "en"
+      "en",
+      "zh"
     ],
     "pricing": {
-      "from": 99,
-      "currency": "USD"
-    },
-    "affiliateUrl": "https://www.semrush.com/?ref=comparateur-ia",
-    "status": "published",
-    "source": "éditeur",
-    "rating": {
-      "value": 4.7,
-      "count": 10
-    },
-    "ranking": 10,
-    "selection": false,
-    "featured": false,
-    "verified": false,
-    "isaffiliate": false,
-    "hasReview": false,
-    "updatedAt": "2025-10-10",
-    "createdAt": "2025-10-10",
-    "highlight": "Voyez votre position dans les recherches IA et faites-la progresser en quelques actions clés.",
-    "description": ""
-  },
-  {
-    "id": "tomoviee",
-    "slug": "tomoviee",
-    "name": "ToMoviee AI",
-    "partner": "tomoviee",
-    "categories": [
-      "Vidéo",
-      "Images"
-    ],
-    "website": "https://www.tomoviee.ai/",
-    "affiliateUrl": "https://www.tomoviee.ai/?ref=comparateur-ia",
-    "logo": "/partners/tomoviee.png",
-    "og": "/partners/og/tomoviee.png",
-    "description": "Tomoviee est un studio créatif tout-en-un alimenté par l’intelligence artificielle. Il permet de générer facilement des vidéos, images, musiques et voix réalistes à partir de simples idées ou scripts. Grâce à sa technologie Text-to-Video, vous pouvez transformer vos textes en vidéos professionnelles prêtes à partager. Idéal pour les créateurs, marketeurs et entreprises souhaitant produire du contenu de qualité sans compétences techniques.",
-    "short": "Le studio IA complet pour vos créations. Transformez vos idées en vidéos, images, musiques et voix réalistes en quelques secondes. Essayez aussi la fonction Text-to-Video !",
-    "highlight": "Création IA tout-en-un • Text-to-Video avancé • Résultats professionnels instantanés",
-    "price": "7,99 €/mois",
-    "priceMonthly": 7.99,
-    "priceCurrency": "EUR",
-    "pricing": {
-      "from": 7.99,
+      "from": 0,
       "currency": "EUR"
     },
-    "trial": true,
-    "languages": [
-      "EN",
-      "ES"
-    ],
-    "tags": [
-      "Générateurs Images",
-      "Générateurs Vidéos"
-    ],
-    "rating": {
-      "value": 4.8,
-      "count": 10
-    },
-    "ranking": 4,
+    "affiliateUrl": "https://www.capcut.com/?ref=comparateur-ia",
     "status": "published",
     "source": "éditeur",
-    "selection": false,
-    "featured": false,
+    "rating": {
+      "value": 4.8,
+      "count": 33
+    },
+    "ranking": 4,
+    "hasReview": true,
     "verified": false,
-    "isaffiliate": false,
-    "hasReview": false,
-    "updatedAt": "2025-10-16",
-    "createdAt": "2025-10-16"
+    "featured": false,
+    "alternatives": [],
+    "updatedAt": "2025-10-09",
+    "highlight": "Montage rapide sur mobile & TikTok",
+    "description": "Suite mobile/desktop gratuite axée contenus courts et sociaux."
   }
 ]

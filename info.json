@@ -1332,7 +1332,7 @@
     ],
     "languages": [
       "fr",
-	    "en"
+      "en"
     ],
     "pricing": {
       "from": 99,
@@ -1355,17 +1355,20 @@
     "createdAt": "2025-10-10",
     "highlight": "Voyez votre position dans les recherches IA et faites-la progresser en quelques actions clés.",
     "description": ""
-  },  
+  },
   {
     "id": "tomoviee",
     "slug": "tomoviee",
     "name": "ToMoviee AI",
     "partner": "tomoviee",
-    "categories": ["Vidéo", "Images"],
+    "categories": [
+      "Vidéo",
+      "Images"
+    ],
     "website": "https://www.tomoviee.ai/",
     "affiliateUrl": "https://www.tomoviee.ai/?ref=comparateur-ia",
     "logo": "/partners/tomoviee.png",
-	  "og": "/partners/og/tomoviee.png",
+    "og": "/partners/og/tomoviee.png",
     "description": "Tomoviee est un studio créatif tout-en-un alimenté par l’intelligence artificielle. Il permet de générer facilement des vidéos, images, musiques et voix réalistes à partir de simples idées ou scripts. Grâce à sa technologie Text-to-Video, vous pouvez transformer vos textes en vidéos professionnelles prêtes à partager. Idéal pour les créateurs, marketeurs et entreprises souhaitant produire du contenu de qualité sans compétences techniques.",
     "short": "Le studio IA complet pour vos créations. Transformez vos idées en vidéos, images, musiques et voix réalistes en quelques secondes. Essayez aussi la fonction Text-to-Video !",
     "highlight": "Création IA tout-en-un • Text-to-Video avancé • Résultats professionnels instantanés",
@@ -1377,8 +1380,14 @@
       "currency": "EUR"
     },
     "trial": true,
-	"languages": ["EN", "ES"],
-    "tags": ["Générateurs Images", "Générateurs Vidéos"],
+    "languages": [
+      "EN",
+      "ES"
+    ],
+    "tags": [
+      "Générateurs Images",
+      "Générateurs Vidéos"
+    ],
     "rating": {
       "value": 4.8,
       "count": 10

@@ -34,7 +34,7 @@
     },
     "ranking": 4,
     "selection": false,
-    "featured": false,
+    "featured": true,
     "verified": false,
     "isAffiliate": false,
     "hasReview": true,

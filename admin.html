@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin Avancé – Comparateur IA</title>
+  <style>
+    /* admin.css - style clair, moderne, responsive */
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root{
+      --bg1:#f4f6fb;
+      --card:#ffffff;
+      --accent:#667eea;
+      --muted:#6b7280;
+      --danger:#ef4444;
+      --success:#10b981;
+    }
+
+    body{
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(135deg,#e6eefc 0%, #f7f9ff 100%);
+      color:#111827;
+      padding: 18px;
+      min-height:100vh;
+    }
+
+    /* Header */
+    header{
+      background: var(--card);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 6px 30px rgba(16,24,40,0.06);
+      margin-bottom: 18px;
+    }
+    header h1{ font-size:20px; margin-bottom:12px; color:#0f172a; }
+
+    /* Controls */
+    .controls{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    /* Buttons */
+    .btn-group{ display:flex; gap:8px; align-items:center; }
+    .btn{ padding:9px 12px; border-radius:8px; border:none; cursor:pointer; font-weight:600; }
+    .btn-add{ background: #10b981; color:white; }
+    .btn-save{ background: var(--accent); color:white; }
+    .btn-export{ background: #8b5cf6; color:white; }
+    .btn-refresh{ background:#f3f4f6; color:#111827; border:1px solid #e6e9f2; }
+
+    /* Category filters row */
+    .category-filters{
+      display:flex;
+      gap:10px;
+      flex-direction:column;
+      margin-top:14px;
+      padding:12px;
+      background:#fbfdff;
+      border-radius:8px;
+      border:1px solid #eef2ff;
+    }
+    .category-filters-label{ font-weight:600; color:var(--muted); margin-bottom:8px; }
+    .filter-btn{
+      padding:8px 14px;
+      border-radius:20px;
+      border:1px solid #e6e9f2;
+      background:white;
+      cursor:pointer;
+      font-weight:600;
+    }
+    .filter-btn.active{ background:var(--accent); color:white; border-color:var(--accent); }
+
+    /* Stats */
+    .stats{ display:flex; gap:12px; align-items:center; margin-top:12px; flex-wrap:wrap; }
+    .stat-card{
+      color:white;
+      padding:10px 14px;
+      border-radius:8px;
+      font-weight:700;
+      min-width:100px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+    }
+        .status-indicator{ font-weight:700; color:var(--success); }
+
+    /* Message */
+    .msg{ margin-top:10px; padding:10px; border-radius:8px; display:none; font-weight:600; }
+    .msg.success { background: #d1fae5; color: #065f46; }
+    .msg.error { background: #fee2e2; color: #991b1b; }
+    .msg.warning { background: #fef3c7; color: #92400e; }
+
+    /* Table */
+    .table-container{
+      background:var(--card);
+      border-radius:12px;
+      padding:10px;
+      margin-top:12px;
+      box-shadow: 0 6px 30px rgba(16,24,40,0.06);
+      overflow:auto;
+      max-height:65vh;
+    }
+    table{ width:100%; border-collapse:collapse; font-size:14px; min-width:900px; }
+    thead{ position:sticky; top:0; z-index:5; }
+    th{
+      text-align:left;
+      padding:12px 10px;
+      background: linear-gradient(135deg,#667eea,#764ba2);
+      color:white;
+      font-weight:700;
+      vertical-align:middle;
+      min-width:120px;
+      cursor: pointer;
+    }
+    td{ padding:10px 8px; border-bottom:1px solid #f1f5f9; vertical-align:middle; }
+
+    .cell-input, .cell-checkbox, input[type="text"], select, textarea {
+      font-family:inherit;
+      font-size:13px;
+    }
+    .cell-input{ padding:6px 8px; border:1px solid #e6e9f2; border-radius:6px; width:100%; }
+
+    /* Badges */
+    .array-badge, .obj-badge, .category-tag{
+      display:inline-block; margin:2px; padding:4px 8px; border-radius:999px; font-size:12px; font-weight:600;
+    }
+    .array-badge{ background:#eef2ff; color:#4338ca; }
+    .category-tag{ background:#e6fffa; color:#065f46; cursor:pointer; }
+    .obj-badge{ background:#fecdd3; color:#831c3d; cursor:pointer; }
+
+    /* Actions */
+    .actions { display: flex; gap: 6px; }
+    .btn-detail, .btn-delete {
+      padding: 6px 10px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 14px;
+      background: #f3f4f6;
+    }
+    .btn-detail:hover { background: #e5e7eb; }
+    .btn-delete:hover { background: #fecaca; }
+
+    /* Modal */
+    .modal{ display:none; position:fixed; inset:0; background:rgba(2,6,23,0.6); z-index:1000; align-items:center; justify-content:center; padding:20px; }
+    .modal.show{ display:flex; }
+    .modal-content{ background:white; border-radius:12px; padding:22px; max-width:900px; width:100%; max-height:85vh; overflow:auto; box-shadow:0 20px 60px rgba(2,6,23,0.4); }
+    .modal-header{ display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; border-bottom:3px solid var(--accent); padding-bottom:12px; }
+    .close-btn{ background:var(--danger); color:white; border:none; padding:8px 12px; border-radius:8px; cursor:pointer; }
+
+    .field-group { margin-bottom: 16px; }
+    .field-group label { font-weight: 700; margin-bottom: 6px; display: block; }
+    .field-group textarea {
+      width: 100%;
+      min-height: 80px;
+      padding: 8px;
+      border: 1px solid #e6e9f2;
+      border-radius: 6px;
+      font-family: monospace;
+      font-size: 12px;
+    }
+
+    /* Responsive */
+    @media (max-width:900px){
+      .controls{ flex-direction:column; align-items:stretch; }
+      .btn-group{ justify-content:flex-start; }
+      table{ min-width:700px; }
+    }
+
+ /* Masquer complètement la barre de recherche et le menu déroulant */
+.search-bar,
+#searchInput,
+#categorySelect,
+#categoryFilters {
+  display: none !important;
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
+table {
+  table-layout:unset;
+  width: 100%;
+  border-collapse: collapse;
+  resize: scroll;
+  overflow:visible;
+}
+
+th, td {
+  resize: horizontal;
+  overflow:scroll;
+  min-width: 90px; /* largeur minimale */
+}
+/* --- Poignées de redimensionnement des colonnes --- */
+th {
+  position: relative;
+}
+
+th.resizable .resize-handle {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 6px;              /* largeur de la zone à attraper */
+  height: 100%;
+  cursor: col-resize;       /* curseur horizontal */
+  user-select: none;
+  background: transparent;  /* invisible */
+}
+
+/* Style visible au survol pour aider au debug/test */
+.resize-handle:hover {
+  background: rgba(102,126,234,0.25);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed; /* nécessaire pour que le resize fonctionne */
+}
+
+th, td {
+  min-width: 200px;           /* ✅ largeur minimale de base */
+  width: 200px;               /* ✅ largeur initiale */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  position: relative;
+}
+
+th.resizable .resize-handle {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 60px;
+  height: 100%;
+  cursor: col-resize;
+  user-select: none;
+  background: transparent;
+}
+
+.resize-handle:hover {
+  background: rgba(102,126,234,0.25);
+}
+
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>⚙️ Admin Avancé – Comparateur d'IA</h1>
+
+    <div class="controls">
+      <div class="search-bar">
+        <input id="searchInput"/>
+      </div>
+
+      
+        <select id="categorySelect">
+
+        </select>
+      </div>
+
+      <div class="btn-group">
+        <button class="btn btn-add" id="addIA">➕ Ajouter</button>
+        <button class="btn btn-save" id="saveAll">💾 Sauvegarder</button>
+        <button class="btn btn-export" id="exportJSON">📥 Export JSON</button>
+        <button class="btn btn-refresh" id="refreshData">🔄 Refresh</button>
+      </div>
+    </div>
+
+
+
+    <div class="stats">
+      <div class="stat-card">
+        <div>Total</div>
+        <div class="number" id="totalCount">0</div>
+      </div>
+      <div class="stat-card">
+        <div>Publiées</div>
+        <div class="number" id="publishedCount">0</div>
+      </div>
+      <div class="stat-card">
+        <div>Featured</div>
+        <div class="number" id="featuredCount">0</div>
+      </div>
+      <div class="status-bar">
+        <span class="status-indicator" id="statusIndicator">✓ À jour</span>
+        <span id="recordCount">0 enregistrements</span>
+      </div>
+    </div>
+
+    <div id="msg" class="msg"></div>
+  </header>
+
+  <main>
+    <div class="table-container">
+      <table id="iaTable">
+        <thead><tr id="headerRow"></tr></thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- Détail modal -->
+  <div id="detailModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modalTitle">Détails</h2>
+        <button class="close-btn" id="closeModalBtn">✕</button>
+      </div>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+<script src="github-config.js"></script>
+  
+  <script>
+    /* admin.js - Version corrigée (sans backend requis) */
+
+const CONFIG = {
+  DATA_URL: 'https://raw.githubusercontent.com/redragon38/comparateur-ia/main/info.json',
+  CACHE_KEY: 'ia-data-draft',
+  CACHE_EXPIRY: 24 * 60 * 60 * 1000
+};
+
+const AppState = {
+  iaData: [],
+  filteredData: [],
+  isDirty: false,
+  db: null,
+  columnFilters: {},
+  searchTerm: '',
+  categoryQuick: ''
+};
+
+let msgEl, searchInput, tableBody, headerRow, categorySelect, categoryFiltersDiv, detailModal, modalBody;
+
+// ========== INITIALISATION ==========
+document.addEventListener('DOMContentLoaded', async () => {
+  try {
+    msgEl = document.getElementById('msg');
+    searchInput = document.getElementById('searchInput');
+    tableBody = document.getElementById('tableBody');
+    headerRow = document.getElementById('headerRow');
+    categorySelect = document.getElementById('categorySelect');
+    categoryFiltersDiv = document.getElementById('categoryFilters');
+    detailModal = document.getElementById('detailModal');
+    modalBody = document.getElementById('modalBody');
+  document.getElementById('saveAll').addEventListener('click', () => {
+});
+
+    if (!msgEl || !searchInput || !tableBody || !headerRow) {
+      throw new Error('Éléments HTML manquants');
+    }
+
+    await initIndexedDB();
+    setupEventListeners();
+    await loadData();
+    renderCategoryQuickButtons();
+    applyFilters();
+    await restoreDraftIfAvailable();
+  } catch (err) {
+    console.error('Erreur initialisation:', err);
+    if (msgEl) showMsg('Erreur: ' + err.message, 'error');
+  }
+});
+
+// ========== INDEXED DB ==========
+function initIndexedDB() {
+  return new Promise((resolve, reject) => {
+    const req = indexedDB.open('IAComparator', 1);
+    req.onerror = () => reject(req.error);
+    req.onsuccess = () => {
+      AppState.db = req.result;
+      resolve();
+    };
+    req.onupgradeneeded = (e) => {
+      const db = e.target.result;
+      if (!db.objectStoreNames.contains('drafts')) {
+        db.createObjectStore('drafts', { keyPath: 'id' });
+      }
+    };
+  });
+}
+
+function saveDraftLocal() {
+  if (!AppState.db) return Promise.resolve();
+  return new Promise((resolve) => {
+    const tx = AppState.db.transaction(['drafts'], 'readwrite');
+    const store = tx.objectStore('drafts');
+    store.put({ id: 'latest', data: AppState.iaData, timestamp: Date.now() });
+    tx.oncomplete = () => resolve();
+    tx.onerror = () => resolve();
+  });
+}
+
+function restoreDraftIfAvailable() {
+  if (!AppState.db) return Promise.resolve();
+  return new Promise((resolve) => {
+    const tx = AppState.db.transaction(['drafts'], 'readonly');
+    const req = tx.objectStore('drafts').get('latest');
+    req.onsuccess = () => {
+      if (req.result && (Date.now() - req.result.timestamp < CONFIG.CACHE_EXPIRY)) {
+        showMsg('Brouillon restauré', 'warning', 3000);
+        AppState.iaData = req.result.data;
+        applyFilters();
+      }
+      resolve();
+    };
+    req.onerror = () => resolve();
+  });
+}
+
+// ========== UTILITAIRES UI ==========
+function showMsg(text, type = 'success', duration = 4000) {
+  if (!msgEl) return;
+  msgEl.textContent = text;
+  msgEl.className = `msg ${type}`;
+  msgEl.style.display = 'block';
+  if (duration > 0) {
+    setTimeout(() => {
+      msgEl.style.display = 'none';
+      msgEl.className = 'msg';
+    }, duration);
+  }
+}
+
+function updateStats() {
+  const totalEl = document.getElementById('totalCount');
+  const publishedEl = document.getElementById('publishedCount');
+  const featuredEl = document.getElementById('featuredCount');
+  const recordEl = document.getElementById('recordCount');
+  const statusEl = document.getElementById('statusIndicator');
+
+  if (totalEl) totalEl.textContent = AppState.iaData.length;
+  if (publishedEl) publishedEl.textContent = AppState.iaData.filter(i => i.status === 'published').length;
+  if (featuredEl) featuredEl.textContent = AppState.iaData.filter(i => i.featured).length;
+  if (recordEl) recordEl.textContent = `${AppState.filteredData.length} enregistrements`;
+  if (statusEl) {
+    if (AppState.isDirty) {
+      statusEl.textContent = '● Non sauvegardé';
+      statusEl.style.color = '#f59e0b';
+    } else {
+      statusEl.textContent = '✓ À jour';
+      statusEl.style.color = '#10b981';
+    }
+  }
+}
+
+// ========== CHARGEMENT DONNÉES ==========
+async function loadData() {
+  showMsg('Chargement...', 'warning', 0);
+  try {
+    const res = await fetch(CONFIG.DATA_URL + '?t=' + Date.now());
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const txt = await res.text();
+    AppState.iaData = JSON.parse(txt);
+    applyFilters();
+    updateStats();
+    showMsg(`${AppState.iaData.length} IA chargées`, 'success', 2000);
+  } catch (err) {
+    showMsg('Impossible de charger: ' + err.message, 'error', 5000);
+    console.error(err);
+  }
+}
+
+// ========== UTILITAIRES CHAMPS ==========
+function getAllFields() {
+  const set = new Set();
+  AppState.iaData.forEach(item => Object.keys(item).forEach(k => set.add(k)));
+  if (set.size === 0) {
+    ['id', 'name', 'short', 'categories', 'status', 'featured', 'updatedAt'].forEach(k => set.add(k));
+  }
+  return Array.from(set).sort();
+}
+
+function getColumnValues(field) {
+  const s = new Set();
+  AppState.iaData.forEach(ia => {
+    const v = ia[field];
+    if (Array.isArray(v)) v.forEach(x => s.add(String(x)));
+    else if (v !== undefined && v !== null) s.add(String(v));
+  });
+  return Array.from(s).sort();
+}
+
+function escapeHtml(str = '') {
+  if (typeof str !== 'string') return String(str || '');
+  return str.replace(/[&<>"']/g, m => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'
+  }[m]));
+}
+
+// ========== FILTRAGE ==========
+function applyFilters() {
+  const term = (searchInput.value || '').toLowerCase();
+  AppState.searchTerm = term;
+  const selectedCategory = (categorySelect.value || '').toLowerCase();
+  AppState.categoryQuick = selectedCategory;
+
+  AppState.filteredData = AppState.iaData.filter(ia => {
+    for (const [field, selectedValues] of Object.entries(AppState.columnFilters)) {
+      if (!selectedValues || selectedValues.length === 0) continue;
+      const val = ia[field];
+      let itemVals = [];
+      if (Array.isArray(val)) itemVals = val.map(v => String(v));
+      else if (val !== undefined && val !== null) itemVals = [String(val)];
+      const match = selectedValues.some(sel => itemVals.includes(sel));
+      if (!match) return false;
+    }
+
+    if (term) {
+      const hay = [ia.name, ia.short, ia.id, ia.slug, ia.description].filter(Boolean).join(' ').toLowerCase();
+      const categoriesStr = (ia.categories || []).join(' ').toLowerCase();
+      if (!(hay.includes(term) || categoriesStr.includes(term))) return false;
+    }
+
+    if (selectedCategory) {
+      const cats = (ia.categories || []).map(c => String(c).toLowerCase());
+      if (!cats.some(c => c === selectedCategory)) return false;
+    }
+
+    return true;
+  });
+
+  renderTable();
+  updateStats();
+  updateFilterIndicators();
+  
+}
+
+// ========== RENDU TABLEAU ==========
+function renderTable() {
+  const fields = getAllFields();
+  headerRow.innerHTML = fields.map(f => `
+    <th title="${escapeHtml(f)}" data-field="${escapeHtml(f)}" class="header-cell">
+      ${escapeHtml(f)} <span class="filter-icon">⚙️</span>
+    </th>
+  `).join('') + '<th style="min-width:160px;">Actions</th>';
+
+  tableBody.innerHTML = '';
+  AppState.filteredData.forEach((ia, idx) => {
+    const tr = document.createElement('tr');
+    let html = '';
+    fields.forEach(field => {
+      const val = ia[field];
+      html += `<td>${renderCellContent(val, field, idx)}</td>`;
+    });
+    html += `<td class="actions">
+      <button class="btn-detail" onclick="openDetailModal(${idx})">📋</button>
+      <button class="btn-delete" onclick="confirmDelete(${idx})">🗑️</button>
+    </td>`;
+    tr.innerHTML = html;
+    tableBody.appendChild(tr);
+  });
+
+  attachHeaderFilters();
+
+  // <-- Ajout pour activer le redimensionnement après chaque rendu
+  makeColumnsResizable();
+}
+
+// ========== RENDU CELLULES ==========
+function renderCellContent(value, field, idx) {
+  if (typeof value === 'boolean') {
+    return `<input type="checkbox" ${value ? 'checked' : ''} data-field="${field}" data-index="${idx}" class="cell-checkbox">`;
+  }
+
+  if (field === 'status') {
+    return `<select data-field="status" data-index="${idx}" class="cell-input">
+      <option value="published" ${value === 'published' ? 'selected' : ''}>Publié</option>
+      <option value="draft" ${value === 'draft' ? 'selected' : ''}>Draft</option>
+    </select>`;
+  }
+
+  if (typeof value === 'number') {
+    return `<input type="number" step="0.01" value="${value}" data-field="${field}" data-index="${idx}" class="cell-input">`;
+  }
+
+  if (field === 'categories' && Array.isArray(value)) {
+    if (value.length === 0) return '<span style="color:#999">-</span>';
+    return value.map(cat => `<span class="category-tag">${escapeHtml(cat)}</span>`).join('');
+  }
+
+  if (Array.isArray(value)) {
+    if (value.length === 0) return '<span style="color:#999">-</span>';
+    return value.map(it => `<span class="array-badge">${escapeHtml(String(it))}</span>`).join('');
+  }
+
+  if (typeof value === 'object' && value !== null) {
+    return `<span class="obj-badge" onclick="openDetailModal(${idx})" title="Cliquer pour éditer">{...}</span>`;
+  }
+
+  if (typeof value === 'string') {
+    const disp = value.length > 40 ? escapeHtml(value.substring(0, 37)) + '...' : escapeHtml(value);
+    return `<input type="text" value="${escapeHtml(value)}" data-field="${escapeHtml(field)}" data-index="${idx}" class="cell-input" title="${escapeHtml(value)}">`;
+  }
+
+  return '<span style="color:#999">-</span>';
+}
+
+// ========== FILTRES EXCEL ==========
+function attachHeaderFilters() {
+  document.querySelectorAll('th.header-cell').forEach(header => {
+    header.removeEventListener('click', header._clickHandler);
+    header._clickHandler = (e) => {
+      e.stopPropagation();
+      showExcelFilterMenu(header, header.dataset.field);
+    };
+    header.addEventListener('click', header._clickHandler);
+  });
+}
+
+function showExcelFilterMenu(headerElement, field) {
+  document.querySelectorAll('.excel-filter-menu').forEach(m => m.remove());
+  const values = getColumnValues(field);
+  const current = AppState.columnFilters[field] || [];
+
+  const menu = document.createElement('div');
+  menu.className = 'excel-filter-menu';
+  menu.innerHTML = `
+    <div style="padding:10px; width:320px;">
+      <input type="text" class="filter-search" placeholder="Rechercher..." style="width:100%;padding:8px;margin-bottom:8px;border:1px solid #eee;border-radius:6px;">
+      <label style="display:block;padding:8px;font-weight:600;border-bottom:1px solid #f1f5f9;">
+        <input type="checkbox" class="select-all" ${values.length > 0 && values.every(v => current.includes(v)) ? 'checked' : ''}> Tout sélectionner
+      </label>
+      <div style="max-height:220px;overflow:auto;margin-top:6px;">
+        ${values.map(v => `<label style="display:block;padding:6px;"><input type="checkbox" class="filter-option" value="${escapeHtml(v)}" ${current.includes(v) ? 'checked' : ''}> ${escapeHtml(v || '(vide)')}</label>`).join('')}
+      </div>
+      <div style="display:flex;gap:8px;margin-top:8px;">
+        <button class="btn-apply" style="flex:1;padding:8px;border-radius:6px;background:#3b82f6;color:white;border:none;">Appliquer</button>
+        <button class="btn-clear" style="flex:1;padding:8px;border-radius:6px;background:#ef4444;color:white;border:none;">Réinitialiser</button>
+      </div>
+    </div>
+  `;
+  document.body.appendChild(menu);
+
+  const rect = headerElement.getBoundingClientRect();
+  menu.style.position = 'fixed';
+  menu.style.top = (rect.bottom + 8) + 'px';
+  menu.style.left = rect.left + 'px';
+  menu.style.zIndex = '1002';
+  menu.style.boxShadow = '0 8px 30px rgba(2,6,23,0.15)';
+  menu.style.borderRadius = '8px';
+  menu.style.background = 'white';
+
+  const selectAll = menu.querySelector('.select-all');
+  const options = menu.querySelectorAll('.filter-option');
+  const search = menu.querySelector('.filter-search');
+
+  selectAll?.addEventListener('change', () => options.forEach(o => o.checked = selectAll.checked));
+  options.forEach(o => o.addEventListener('change', () => selectAll.checked = Array.from(options).every(x => x.checked)));
+
+  search.addEventListener('input', (e) => {
+    const t = e.target.value.toLowerCase();
+    menu.querySelectorAll('div > label').forEach(lbl => {
+      const txt = lbl.textContent.toLowerCase();
+      lbl.style.display = txt.includes(t) ? 'block' : 'none';
+    });
+  });
+
+  menu.querySelector('.btn-apply').addEventListener('click', () => {
+    const selected = Array.from(options).filter(o => o.checked).map(o => o.value);
+    AppState.columnFilters[field] = selected;
+    applyFilters();
+    menu.remove();
+  });
+
+  menu.querySelector('.btn-clear').addEventListener('click', () => {
+    AppState.columnFilters[field] = [];
+    applyFilters();
+    menu.remove();
+  });
+
+  setTimeout(() => {
+    document.addEventListener('click', function fn(e) {
+      if (!menu.contains(e.target) && !headerElement.contains(e.target)) {
+        menu.remove();
+        document.removeEventListener('click', fn);
+      }
+    });
+  }, 100);
+}
+
+function updateFilterIndicators() {
+  document.querySelectorAll('th.header-cell').forEach(h => {
+    const field = h.dataset.field;
+    const icon = h.querySelector('.filter-icon');
+    if (AppState.columnFilters[field] && AppState.columnFilters[field].length > 0) {
+      icon.textContent = '🔍';
+      icon.style.color = '#667eea';
+    } else {
+      icon.textContent = '⚙️';
+      icon.style.color = 'inherit';
+    }
+  });
+}
+
+// ========== MODAL DÉTAILS ==========
+function openDetailModal(index) {
+  const ia = AppState.filteredData[index];
+  document.getElementById('modalTitle').textContent = ia.name || 'Détails';
+  let html = '';
+  const fields = getAllFields();
+  fields.forEach(field => {
+    const val = ia[field];
+    const str = (typeof val === 'object') ? JSON.stringify(val, null, 2) : String(val || '');
+    html += `
+      <div class="field-group">
+        <label>${escapeHtml(field)}</label>
+        <textarea data-field="${escapeHtml(field)}" data-index="${index}">${escapeHtml(str)}</textarea>
+      </div>
+    `;
+  });
+  html += `<div style="display:flex;gap:8px;margin-top:8px;">
+    <button class="btn-save" style="flex:1;padding:10px;border-radius:8px;background:var(--accent);color:white;border:none;" onclick="saveDetailChanges(${index})">💾 Enregistrer</button>
+    <button class="btn-delete" style="flex:1;padding:10px;border-radius:8px;background:#ef4444;color:white;border:none;" onclick="closeModal()">✕ Annuler</button>
+  </div>`;
+  modalBody.innerHTML = html;
+  detailModal.classList.add('show');
+  detailModal.setAttribute('aria-hidden', 'false');
+}
+
+function closeModal() {
+  detailModal.classList.remove('show');
+  detailModal.setAttribute('aria-hidden', 'true');
+}
+
+function saveDetailChanges(index) {
+  const inputs = modalBody.querySelectorAll(`[data-index="${index}"]`);
+  const updated = { ...AppState.filteredData[index] };
+  inputs.forEach(inp => {
+    const field = inp.dataset.field;
+    let value = inp.value;
+    try {
+      if ((value.startsWith('{') || value.startsWith('['))) {
+        value = JSON.parse(value);
+      }
+    } catch (e) {}
+    updated[field] = value;
+  });
+  updated.updatedAt = new Date().toISOString().split('T')[0];
+  const origIdx = AppState.iaData.findIndex(it => it.id === updated.id);
+  if (origIdx !== -1) {
+    AppState.iaData[origIdx] = updated;
+  } else {
+    AppState.iaData.push(updated);
+  }
+  AppState.isDirty = true;
+  saveDraftLocal();
+  applyFilters();
+  showMsg('Changements enregistrés', 'success', 2000);
+  closeModal();
+}
+
+// ========== ACTIONS CRUD ==========
+function confirmDelete(index) {
+  const ia = AppState.filteredData[index];
+  if (!ia) return;
+  if (confirm(`Supprimer "${ia.name || ia.id || 'élément'}" ?`)) {
+    deleteIA(index);
+  }
+}
+
+function deleteIA(index) {
+  const ia = AppState.filteredData[index];
+  const origIdx = AppState.iaData.findIndex(it => it.id === ia.id);
+  if (origIdx !== -1) AppState.iaData.splice(origIdx, 1);
+  AppState.isDirty = true;
+  saveDraftLocal();
+  applyFilters();
+  showMsg(`"${ia.name || ia.id}" supprimée`, 'success', 2000);
+}
+
+function addIA() {
+  const newIA = {
+    id: 'new-' + Date.now(),
+    slug: 'new-slug-' + Date.now(),
+    name: 'Nouvelle IA',
+    short: '',
+    description: '',
+    categories: [],
+    status: 'draft',
+    featured: false,
+    updatedAt: new Date().toISOString().split('T')[0]
+  };
+  AppState.iaData.unshift(newIA);
+  AppState.isDirty = true;
+  saveDraftLocal();
+  applyFilters();
+  showMsg('Nouvelle IA ajoutée', 'success', 1500);
+}
+
+// ========== EXPORT / SAVE ==========
+function exportJSON() {
+  const dataStr = JSON.stringify(AppState.iaData, null, 2);
+  const blob = new Blob([dataStr], { type: 'application/json;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `ia-data-${new Date().toISOString().split('T')[0]}.json`;
+  a.click();
+  URL.revokeObjectURL(url);
+  showMsg('Fichier exporté', 'success', 1500);
+}
+
+async function saveAll() {
+
+}
+
+
+// ========== MODIFICATIONS INLINE ==========
+function handleTableChange(e) {
+  if (!e.target.dataset.field) return;
+  const field = e.target.dataset.field;
+  const index = parseInt(e.target.dataset.index);
+  let value = e.target.value;
+  if (e.target.type === 'checkbox') value = e.target.checked;
+  else if (e.target.type === 'number') value = parseFloat(value) || 0;
+
+  AppState.filteredData[index][field] = value;
+  AppState.filteredData[index].updatedAt = new Date().toISOString().split('T')[0];
+
+  const origIdx = AppState.iaData.findIndex(ia => ia.id === AppState.filteredData[index].id);
+  if (origIdx !== -1) AppState.iaData[origIdx] = AppState.filteredData[index];
+
+  AppState.isDirty = true;
+  saveDraftLocal();
+  updateStats();
+}
+
+// ========== EVENT LISTENERS ==========
+function setupEventListeners() {
+  document.getElementById('addIA')?.addEventListener('click', addIA);
+  document.getElementById('exportJSON')?.addEventListener('click', exportJSON);
+  document.getElementById('saveAll')?.addEventListener('click', saveAll);
+  document.getElementById('refreshData')?.addEventListener('click', () => {
+    if (confirm('Rafraîchir ? Vous perdrez vos brouillons locaux.')) {
+      AppState.columnFilters = {};
+      loadData();
+      AppState.isDirty = false;
+    }
+  });
+
+  searchInput?.addEventListener('input', () => {
+    clearTimeout(searchInput._t);
+    searchInput._t = setTimeout(() => applyFilters(), 180);
+  });
+
+  categorySelect?.addEventListener('change', () => {
+    const val = categorySelect.value;
+    document.querySelectorAll('#categoryFilters .filter-btn').forEach(b =>
+      b.classList.toggle('active', b.dataset.cat === val)
+    );
+    applyFilters();
+  });
+
+  tableBody?.addEventListener('input', handleTableChange);
+  tableBody?.addEventListener('change', handleTableChange);
+
+  document.getElementById('closeModalBtn')?.addEventListener('click', closeModal);
+  detailModal?.addEventListener('click', (e) => {
+    if (e.target === detailModal) closeModal();
+  });
+}
+
+// ========== BOUTONS CATÉGORIES RAPIDES ==========
+function renderCategoryQuickButtons() {
+  const cats = new Set(AppState.iaData.flatMap(ia => ia.categories || []));
+  if (!categoryFiltersDiv) return;
+  
+  categoryFiltersDiv.innerHTML = '';
+  const allBtn = document.createElement('button');
+  allBtn.className = 'filter-btn active';
+  allBtn.dataset.cat = '';
+  allBtn.textContent = 'Toutes';
+  categoryFiltersDiv.appendChild(allBtn);
+
+  allBtn.addEventListener('click', () => {
+    document.querySelectorAll('#categoryFilters .filter-btn').forEach(b => b.classList.remove('active'));
+    allBtn.classList.add('active');
+    categorySelect.value = '';
+    applyFilters();
+  });
+
+  Array.from(cats).slice(0, 12).forEach(c => {
+    const btn = document.createElement('button');
+    btn.className = 'filter-btn';
+    btn.dataset.cat = c;
+    btn.textContent = c;
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('#categoryFilters .filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      categorySelect.value = c;
+      applyFilters();
+    });
+    categoryFiltersDiv.appendChild(btn);
+  });
+}
+
+// ========== REDIMENSIONNEMENT DES COLONNES ==========
+/*
+  makeColumnsResizable()
+  - ajoute une poignée (.resize-handle) à droite de chaque <th>
+  - prend en charge le drag horizontal (mousedown -> mousemove -> mouseup)
+  - applique la largeur directement au <th> (style.width) pour préserver le layout
+  - empêche l'ajout multiple des poignées
+  - fonctionne pour tous les tableaux présents sur la page
+*/
+function makeColumnsResizable() {
+  // Sélecteur sur toutes les tables (tu as demandé "renvoie tout" => global)
+  document.querySelectorAll('table').forEach(table => {
+    // pour éviter problèmes, on s'assure que le tableau a un <thead>
+    const thead = table.querySelector('thead');
+    if (!thead) return;
+    const ths = thead.querySelectorAll('th');
+
+    ths.forEach(th => {
+      // Marquer resizable pour style si nécessaire
+      th.classList.add('resizable');
+
+      // Si la poignée existe déjà, skip
+      if (th.querySelector('.resize-handle')) return;
+
+      // Créer la poignée
+      const handle = document.createElement('div');
+      handle.className = 'resize-handle';
+      // pour faciliter le clic, on la met en fin du th
+      th.appendChild(handle);
+
+      // Variables d'état
+      let startX = 0;
+      let startWidth = 0;
+      let dragging = false;
+document.getElementById('saveAll').addEventListener('click', () => {
+
+});
+
+      const onMouseMove = (e) => {
+        if (!dragging) return;
+        // Calcul du nouveau width
+        const delta = e.pageX - startX;
+        const newWidth = Math.max(40, startWidth + delta); // min-width 40px
+        th.style.width = newWidth + 'px';
+
+        // Si table-layout est "fixed", appliquer aussi à la cellule correspondante peut être nécessaire
+        // On évite ici de toucher aux cellules pour conserver le comportement existant
+      };
+
+      const onMouseUp = () => {
+        if (!dragging) return;
+        dragging = false;
+        document.body.style.cursor = '';
+        document.removeEventListener('mousemove', onMouseMove);
+        document.removeEventListener('mouseup', onMouseUp);
+      };
+
+      handle.addEventListener('mousedown', (e) => {
+        e.preventDefault();
+        dragging = true;
+        startX = e.pageX;
+        startWidth = th.offsetWidth;
+        document.body.style.cursor = 'col-resize';
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
+      });
+
+      // Support clavier : si besoin on peut ajouter gestion keydown (left/right) sur le handle
+    });
+  });
+}
+
+// ========== GLOBALS ==========
+window.openDetailModal = openDetailModal;
+window.closeModal = closeModal;
+window.saveDetailChanges = saveDetailChanges;
+window.confirmDelete = confirmDelete;
+window.deleteIA = deleteIA;
+// =============================
+// ⚙️ SAUVEGARDE SUR GITHUB
+// =============================
+async function saveToGitHub(data) {
+  const cfg = window.GITHUB_CONFIG;
+  if (!cfg || !cfg.token) {
+    showMsg('❌ Fichier github-config.js introuvable ou token manquant', 'error');
+    return;
+  }
+
+  showMsg('💾 Sauvegarde sur GitHub en cours...', 'warning', 0);
+
+  try {
+    // 1️⃣ On récupère la version actuelle du fichier (pour obtenir le SHA)
+    const res = await fetch(`https://api.github.com/repos/${cfg.repoOwner}/${cfg.repoName}/contents/${cfg.filePath}`, {
+      headers: { Authorization: `token ${cfg.token}` }
+    });
+    if (!res.ok) throw new Error(`Impossible de récupérer le fichier (HTTP ${res.status})`);
+    const file = await res.json();
+
+    // 2️⃣ On prépare le contenu encodé en base64
+    const content = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
+
+    // 3️⃣ On envoie la mise à jour sur GitHub
+    const updateRes = await fetch(`https://api.github.com/repos/${cfg.repoOwner}/${cfg.repoName}/contents/${cfg.filePath}`, {
+      method: 'PUT',
+      headers: {
+        Authorization: `token ${cfg.token}`,
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        message: `Mise à jour via Admin (${new Date().toLocaleString()})`,
+        content,
+        sha: file.sha,
+        branch: cfg.branch
+      })
+    });
+
+    if (!updateRes.ok) throw new Error(`Erreur GitHub: ${updateRes.status}`);
+    showMsg('✅ Sauvegardé sur GitHub avec succès', 'success', 4000);
+
+  } catch (err) {
+    console.error(err);
+    showMsg('❌ Erreur GitHub: ' + err.message, 'error', 6000);
+  }
+}
+// 🔘 Bouton Sauvegarder → lance la sauvegarde vers GitHub une seule fois
+document.getElementById('saveAll')?.addEventListener('click', () => {
+  saveToGitHub(AppState.iaData);
+});
+
+
+// ========== FIN DES SCRIPTS ==========
+  </script>
+</body>
+</html>

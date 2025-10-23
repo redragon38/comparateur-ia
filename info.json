@@ -4110,8 +4110,8 @@
       "count": 10
     },
     "ranking": 4,
-    "selection": false,
-    "featured": false,
+    "selection": true,
+    "featured": true,
     "verified": false,
     "isAffiliate": false,
     "hasReview": true,

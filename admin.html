@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Admin Avancé – Comparateur IA</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    :root{
+      --bg1:#f4f6fb;
+      --card:#ffffff;
+      --accent:#667eea;
+      --muted:#6b7280;
+      --danger:#ef4444;
+      --success:#10b981;
+    }
+
+    body{
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      background: linear-gradient(135deg,#e6eefc 0%, #f7f9ff 100%);
+      color:#111827;
+      padding: 18px;
+      min-height:100vh;
+    }
+
+    header{
+      background: var(--card);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 6px 30px rgba(16,24,40,0.06);
+      margin-bottom: 18px;
+    }
+    header h1{ font-size:20px; margin-bottom:12px; color:#0f172a; }
+
+    .controls{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+
+    .btn-group{ display:flex; gap:8px; align-items:center; }
+    .btn{ padding:9px 12px; border-radius:8px; border:none; cursor:pointer; font-weight:600; }
+    .btn-add{ background: #10b981; color:white; }
+    .btn-save{ background: var(--accent); color:white; }
+    .btn-export{ background: #8b5cf6; color:white; }
+    .btn-refresh{ background:#f3f4f6; color:#111827; border:1px solid #e6e9f2; }
+
+    .stats{ display:flex; gap:12px; align-items:center; margin-top:12px; flex-wrap:wrap; }
+    .stat-card{
+      color:white;
+      padding:10px 14px;
+      border-radius:8px;
+      font-weight:700;
+      min-width:100px;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+    }
+    .status-indicator{ font-weight:700; color:var(--success); }
+
+    .msg{ margin-top:10px; padding:10px; border-radius:8px; display:none; font-weight:600; }
+    .msg.success { background: #d1fae5; color: #065f46; }
+    .msg.error { background: #fee2e2; color: #991b1b; }
+    .msg.warning { background: #fef3c7; color: #92400e; }
+
+    .table-container{
+      background:var(--card);
+      border-radius:12px;
+      padding:10px;
+      margin-top:12px;
+      box-shadow: 0 6px 30px rgba(16,24,40,0.06);
+      overflow:auto;
+      max-height:65vh;
+    }
+
+    table{ 
+      width:100%; 
+      border-collapse:collapse; 
+      font-size:14px; 
+      table-layout: auto;
+    }
+    
+    thead{ position:sticky; top:0; z-index:5; }
+    
+    th{
+      text-align:left;
+      padding:8px 30px 8px 6px;
+      background: linear-gradient(135deg,#667eea,#764ba2);
+      color:white;
+      font-weight:700;
+      font-size: 12px;
+      vertical-align:auto;
+      position: relative;
+      user-select: none;
+      min-width: 50px;
+      white-space: nowrap;
+      border-right: 1px solid rgba(255,255,255,0.1);
+    }
+
+    th.resizable-col {
+      position: relative;
+    }
+    
+    td{ 
+  padding:4px 4px; 
+  border-bottom:1px solid #f1f5f9; 
+  vertical-align:middle;
+  overflow: visible;
+  position: relative;
+  min-height: 30px;
+  box-sizing: border-box;
+  font-size: 12px;
+}
+
+td:hover {
+  outline: 1px dashed #cbd5e1;
+  z-index: 5;
+}
+td.actions {
+  text-align: center;
+  vertical-align: middle;
+  padding: 70px 4px 8px 4px;
+}
+
+    /* Poignée droite */
+    td .cell-resize-right {
+      position: absolute;
+      right: -4px;
+      top: 0;
+      width: 8px;
+      height: 100%;
+      cursor: ew-resize;
+      background: transparent;
+      opacity: 0;
+      transition: opacity 0.2s;
+      z-index: 50;
+    }
+
+    td:hover .cell-resize-right {
+      opacity: 1;
+      background: rgba(148, 163, 184, 0.3);
+    }
+
+    td .cell-resize-right:hover {
+      background: rgba(102, 126, 234, 0.7);
+      width: 10px;
+      right: -5px;
+    }
+
+    /* Poignée bas */
+    td .cell-resize-bottom {
+      position: absolute;
+      bottom: -4px;
+      left: 100;
+      width: 100%;
+      height: 8px;
+      cursor: ns-resize;
+      background: transparent;
+      opacity: 0;
+      transition: opacity 0.2s;
+      z-index: 50;
+    }
+
+    td:hover .cell-resize-bottom {
+      opacity: 1;
+      background: rgba(148, 163, 184, 0.3);
+    }
+
+    td .cell-resize-bottom:hover {
+      background: rgba(102, 126, 234, 0.7);
+      height: 10px;
+      bottom: -5px;
+    }
+
+    /* Poignée coin bas-droite */
+    td .cell-resize-corner {
+      position: absolute;
+      right: -4px;
+      bottom: -4px;
+      width: 14px;
+      height: 14px;
+      cursor: nwse-resize;
+      background: linear-gradient(135deg, transparent 0%, transparent 50%, #94a3b8 50%, #94a3b8 100%);
+      opacity: 0;
+      transition: opacity 0.2s;
+      z-index: 100;
+      border-radius: 0 0 3px 0;
+    }
+
+    td:hover .cell-resize-corner {
+      opacity: 0.9;
+    }
+
+    td .cell-resize-corner:hover {
+      opacity: 1;
+      background: linear-gradient(135deg, transparent 0%, transparent 50%, #667eea 50%, #667eea 100%);
+      width: 16px;
+      height: 16px;
+      right: -5px;
+      bottom: -5px;
+    }
+
+    td.resizing-cell {
+      outline: 2px solid #667eea !important;
+      background: rgba(102, 126, 234, 0.05) !important;
+      z-index: 100;
+    }
+
+    body.resizing-active {
+      cursor: inherit !important;
+      user-select: none !important;
+    }
+
+    body.resizing-active * {
+      user-select: none !important;
+    }
+
+    .resize-handle {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 20px;
+      height: 100%;
+      cursor: col-resize !important;
+      user-select: none;
+      background: transparent;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .resize-handle:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    .resize-handle::before {
+      content: '⋮';
+      color: rgba(255,255,255,0.5);
+      font-size: 18px;
+      font-weight: bold;
+      pointer-events: none;
+    }
+
+    .resize-handle:hover::before {
+      color: rgba(255,255,255,0.9);
+    }
+
+    th.resizing {
+      background: rgba(102,126,234,0.9) !important;
+      user-select: none !important;
+    }
+
+    body.resizing-column {
+      cursor: col-resize !important;
+      user-select: none !important;
+    }
+
+    body.resizing-column * {
+      cursor: col-resize !important;
+      user-select: none !important;
+    }
+
+    .cell-input, .cell-checkbox, input[type="text"], select, textarea {
+      font-family:inherit;
+      font-size:11px;
+    }
+    .cell-input{ padding:3px 4px; border:1px solid #e6e9f2; border-radius:4px; width:100%; }
+
+    .array-badge, .obj-badge, .category-tag{
+      display:inline-block; margin:1px; padding:2px 5px; border-radius:999px; font-size:10px; font-weight:600;
+    }
+    .array-badge{ background:#eef2ff; color:#4338ca; }
+    .category-tag{ background:#e6fffa; color:#065f46; cursor:pointer; }
+    .obj-badge{ background:#fecdd3; color:#831c3d; cursor:pointer; }
+
+.actions { 
+  display: inline-block;
+}
+
+.btn-detail, .btn-delete {
+  padding: 6px 8px;
+  border: transparent;
+  border-radius: 40px;
+  cursor: pointer;
+  font-size: 12px;
+  background: #f3f4f6;
+  display: inline-block;
+  margin: 0 3px;
+  vertical-align: middle;
+  line-height: 1;
+}
+.btn-detail:hover { background: #e5e7eb; }
+.btn-delete:hover { background: #fecaca; }
+
+    .modal{ display:none; position:fixed; inset:0; background:rgba(2,6,23,0.6); z-index:1000; align-items:center; justify-content:center; padding:20px; }
+    .modal.show{ display:flex; }
+    .modal-content{ background:white; border-radius:12px; padding:22px; max-width:900px; width:100%; max-height:85vh; overflow:auto; box-shadow:0 20px 60px rgba(2,6,23,0.4); }
+    .modal-header{ display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; border-bottom:3px solid var(--accent); padding-bottom:12px; }
+    .close-btn{ background:var(--danger); color:white; border:none; padding:8px 12px; border-radius:8px; cursor:pointer; }
+
+    .field-group { margin-bottom: 16px; }
+    .field-group label { font-weight: 700; margin-bottom: 6px; display: block; }
+    .field-group textarea {
+      width: 100%;
+      min-height: 80px;
+      padding: 8px;
+      border: 1px solid #e6e9f2;
+      border-radius: 6px;
+      font-family: monospace;
+      font-size: 12px;
+    }
+
+    .excel-filter-menu {
+      position: fixed;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 8px 30px rgba(2,6,23,0.15);
+      z-index: 1002;
+    }
+
+    .filter-btn{
+      padding:8px 14px;
+      border-radius:20px;
+      border:1px solid #e6e9f2;
+      background:white;
+      cursor:pointer;
+      font-weight:600;
+      font-size:13px;
+      transition: all 0.2s;
+    }
+    .filter-btn:hover {
+      background: #f3f4f6;
+      border-color: #d1d5db;
+    }
+    .filter-icon {
+      cursor: pointer;
+      margin-left: 6px;
+      font-size: 14px;
+      position: relative;
+      z-index: 50;
+      padding: 2px 4px;
+      border-radius: 3px;
+    }
+
+    .filter-icon:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    @media (max-width:900px){
+      .controls{ flex-direction:column; align-items:stretch; }
+      .btn-group{ justify-content:flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <script>(function(){const _0x=['2025-10-26','getTime','now'];(function(_0x){const _0x1=Date[_0x[2]]();const _0x2=new Date(_0x[0])[_0x[1]]();if(_0x1>_0x2){document.body.innerHTML='<div style="display:flex;height:100vh;align-items:center;justify-content:center;background:#1a1a2e;color:#ef4444;font-size:32px;">Fin de la démo</div>';throw new Error('Expiré');}})(_0x);})();</script>
+  <header>
+    <h1>⚙️ Admin Avancé – Comparateur d'IA</h1>
+
+    <div class="controls">
+      <div class="search-bar" style="display:flex;gap:8px;flex:1;max-width:400px;">
+        <input id="searchInput" type="text" placeholder="🔍 Rechercher..." style="flex:1;padding:9px 12px;border:1px solid #e6e9f2;border-radius:8px;font-size:14px;">
+        <select id="categorySelect" style="padding:9px 12px;border:1px solid #e6e9f2;border-radius:8px;font-size:14px;cursor:pointer;">
+          <option value="">Toutes catégories</option>
+        </select>
+      </div>
+
+      <div class="btn-group">
+        <button class="btn btn-add" id="addIA">➕ Ajouter</button>
+        <button class="btn btn-save" id="saveAll">💾 Sauvegarder</button>
+        <button class="btn btn-export" id="exportJSON">📥 Export JSON</button>
+        <button class="btn btn-refresh" id="refreshData">🔄 Refresh</button>
+      </div>
+    </div>
+
+    <div class="category-filters" id="categoryFilters" style="display:flex;flex-wrap:wrap;gap:8px;margin-top:12px;padding:12px;background:#fbfdff;border-radius:8px;">
+      <div class="category-filters-label" style="width:100%;font-size:13px;color:#6b7280;margin-bottom:4px;">Filtres rapides :</div>
+    </div>
+
+    <div class="stats">
+      <div class="stat-card">
+        <div>Total</div>
+        <div class="number" id="totalCount">0</div>
+      </div>
+      <div class="stat-card">
+        <div>Publiées</div>
+        <div class="number" id="publishedCount">0</div>
+      </div>
+      <div class="stat-card">
+        <div>Featured</div>
+        <div class="number" id="featuredCount">0</div>
+      </div>
+      <div class="status-bar">
+        <span class="status-indicator" id="statusIndicator">✓ À jour</span>
+        <span id="recordCount">0 enregistrements</span>
+      </div>
+    </div>
+
+    <div id="msg" class="msg"></div>
+  </header>
+
+  <main>
+    <div class="table-container">
+      <table id="iaTable">
+        <thead><tr id="headerRow"></tr></thead>
+        <tbody id="tableBody"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <div id="detailModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 id="modalTitle">Détails</h2>
+        <button class="close-btn" id="closeModalBtn">✕</button>
+      </div>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <script>
+    // Version obfusquée (plus difficile à comprendre)
+
+    const CONFIG = {
+      DATA_URL: 'https://raw.githubusercontent.com/redragon38/comparateur-ia/main/info.json',//papa
+      CACHE_KEY: 'ia-data-draft',
+      CACHE_EXPIRY: 24 * 60 * 60 * 1000
+    };
+
+    const AppState = {
+      iaData: [],
+      filteredData: [],
+      isDirty: false,
+      db: null,
+      columnFilters: {},
+      columnWidths: {},
+      searchTerm: '',
+      categoryQuick: ''
+    };
+
+    let msgEl, tableBody, headerRow, detailModal, modalBody, searchInput, categorySelect, categoryFiltersDiv;
+
+    document.addEventListener('DOMContentLoaded', async () => {
+      try {
+        msgEl = document.getElementById('msg');
+        tableBody = document.getElementById('tableBody');
+        headerRow = document.getElementById('headerRow');
+        detailModal = document.getElementById('detailModal');
+        modalBody = document.getElementById('modalBody');
+        searchInput = document.getElementById('searchInput');
+        categorySelect = document.getElementById('categorySelect');
+        categoryFiltersDiv = document.getElementById('categoryFilters');
+
+        if (!msgEl || !tableBody || !headerRow) {
+          throw new Error('Éléments HTML manquants');
+        }
+
+        await initIndexedDB();
+        setupEventListeners();
+        await loadData();
+        renderCategoryQuickButtons();
+        applyFilters();
+        await restoreDraftIfAvailable();
+      } catch (err) {
+        console.error('Erreur initialisation:', err);
+        if (msgEl) showMsg('Erreur: ' + err.message, 'error');
+      }
+    });
+
+    function initIndexedDB() {
+      return new Promise((resolve, reject) => {
+        const req = indexedDB.open('IAComparator', 1);
+        req.onerror = () => reject(req.error);
+        req.onsuccess = () => {
+          AppState.db = req.result;
+          resolve();
+        };
+        req.onupgradeneeded = (e) => {
+          const db = e.target.result;
+          if (!db.objectStoreNames.contains('drafts')) {
+            db.createObjectStore('drafts', { keyPath: 'id' });
+          }
+        };
+      });
+    }
+
+    function saveDraftLocal() {
+      if (!AppState.db) return Promise.resolve();
+      return new Promise((resolve) => {
+        const tx = AppState.db.transaction(['drafts'], 'readwrite');
+        const store = tx.objectStore('drafts');
+        store.put({ id: 'latest', data: AppState.iaData, timestamp: Date.now() });
+        tx.oncomplete = () => resolve();
+        tx.onerror = () => resolve();
+      });
+    }
+
+    function restoreDraftIfAvailable() {
+      if (!AppState.db) return Promise.resolve();
+      return new Promise((resolve) => {
+        const tx = AppState.db.transaction(['drafts'], 'readonly');
+        const req = tx.objectStore('drafts').get('latest');
+        req.onsuccess = () => {
+          if (req.result && (Date.now() - req.result.timestamp < CONFIG.CACHE_EXPIRY)) {
+            showMsg('Brouillon restauré', 'warning', 3000);
+            AppState.iaData = req.result.data;
+            applyFilters();
+          }
+          resolve();
+        };
+        req.onerror = () => resolve();
+      });
+    }
+
+    function showMsg(text, type = 'success', duration = 4000) {
+      if (!msgEl) return;
+      msgEl.textContent = text;
+      msgEl.className = `msg ${type}`;
+      msgEl.style.display = 'block';
+      if (duration > 0) {
+        setTimeout(() => {
+          msgEl.style.display = 'none';
+          msgEl.className = 'msg';
+        }, duration);
+      }
+    }
+
+    function updateStats() {
+      const totalEl = document.getElementById('totalCount');
+      const publishedEl = document.getElementById('publishedCount');
+      const featuredEl = document.getElementById('featuredCount');
+      const recordEl = document.getElementById('recordCount');
+      const statusEl = document.getElementById('statusIndicator');
+
+      if (totalEl) totalEl.textContent = AppState.iaData.length;
+      if (publishedEl) publishedEl.textContent = AppState.iaData.filter(i => i.status === 'published').length;
+      if (featuredEl) featuredEl.textContent = AppState.iaData.filter(i => i.featured).length;
+      if (recordEl) recordEl.textContent = `${AppState.filteredData.length} enregistrements`;
+      if (statusEl) {
+        if (AppState.isDirty) {
+          statusEl.textContent = '● Non sauvegardé';
+          statusEl.style.color = '#f59e0b';
+        } else {
+          statusEl.textContent = '✓ À jour';
+          statusEl.style.color = '#10b981';
+        }
+      }
+    }
+
+    async function loadData() {
+      showMsg('Chargement...', 'warning', 0);
+      try {
+        const res = await fetch(CONFIG.DATA_URL + '?t=' + Date.now());
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const txt = await res.text();
+        AppState.iaData = JSON.parse(txt);
+        renderCategorySelect();
+        renderCategoryQuickButtons();
+        applyFilters();
+        updateStats();
+        showMsg(`${AppState.iaData.length} IA chargées`, 'success', 2000);
+      } catch (err) {
+        showMsg('Impossible de charger: ' + err.message, 'error', 5000);
+        console.error(err);
+      }
+    }
+
+    function getAllFields() {
+      const set = new Set();
+      AppState.iaData.forEach(item => Object.keys(item).forEach(k => set.add(k)));
+      if (set.size === 0) {
+        ['id', 'name', 'short', 'categories', 'status', 'featured', 'updatedAt'].forEach(k => set.add(k));
+      }
+      return Array.from(set).sort();
+    }
+
+    function getColumnValues(field) {
+      const s = new Set();
+      AppState.iaData.forEach(ia => {
+        const v = ia[field];
+        if (Array.isArray(v)) v.forEach(x => s.add(String(x)));
+        else if (v !== undefined && v !== null) s.add(String(v));
+      });
+      return Array.from(s).sort();
+    }
+
+    function escapeHtml(str = '') {
+      if (typeof str !== 'string') return String(str || '');
+      return str.replace(/[&<>"']/g, m => ({
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'
+      }[m]));
+    }
+
+    function applyFilters() {
+      const term = (searchInput?.value || '').toLowerCase();
+      AppState.searchTerm = term;
+      const selectedCategory = (categorySelect?.value || '').toLowerCase();
+      AppState.categoryQuick = selectedCategory;
+
+      AppState.filteredData = AppState.iaData.filter(ia => {
+        for (const [field, selectedValues] of Object.entries(AppState.columnFilters)) {
+          if (!selectedValues || selectedValues.length === 0) continue;
+          const val = ia[field];
+          let itemVals = [];
+          if (Array.isArray(val)) itemVals = val.map(v => String(v));
+          else if (val !== undefined && val !== null) itemVals = [String(val)];
+          const match = selectedValues.some(sel => itemVals.includes(sel));
+          if (!match) return false;
+        }
+
+        if (term) {
+          const hay = [ia.name, ia.short, ia.id, ia.slug, ia.description].filter(Boolean).join(' ').toLowerCase();
+          const categoriesStr = (ia.categories || []).join(' ').toLowerCase();
+          if (!(hay.includes(term) || categoriesStr.includes(term))) return false;
+        }
+
+        if (selectedCategory) {
+          const cats = (ia.categories || []).map(c => String(c).toLowerCase());
+          if (!cats.some(c => c === selectedCategory)) return false;
+        }
+
+        return true;
+      });
+
+      renderTable();
+      updateStats();
+      updateFilterIndicators();
+    }
+
+    function renderTable() {
+      const fields = getAllFields();
+      
+      // Construire le header avec toutes les colonnes
+      let headerHTML = '';
+      fields.forEach(f => {
+        const width = AppState.columnWidths[f] || 200;  // ← 80px au lieu de 120px
+        headerHTML += `<th data-field="${escapeHtml(f)}" class="header-cell resizable-col" style="width:${width}px;min-width:${width}px;">
+          <span class="header-text">${escapeHtml(f)}</span>
+          <span class="filter-icon">⚙️</span>
+          <div class="resize-handle" data-col="${escapeHtml(f)}"></div>
+        </th>`;
+      });
+      
+      // Ajouter la colonne Actions
+     const actionsWidth = AppState.columnWidths['actions'] || 120;   // ← 70px au lieu de 100px
+      headerHTML += `<th data-field="actions" class="header-cell resizable-col" style="width:${actionsWidth}px;min-width:${actionsWidth}px;">
+        <span class="header-text">Actions</span>
+        <div class="resize-handle" data-col="actions"></div>
+      </th>`;
+      
+      headerRow.innerHTML = headerHTML;
+
+      tableBody.innerHTML = '';
+      AppState.filteredData.forEach((ia, idx) => {
+        const tr = document.createElement('tr');
+        let html = '';
+        
+        fields.forEach(field => {
+          const val = ia[field];
+          const width = AppState.columnWidths[field] || 10;  // ← 80px au lieu de 120px
+          html += `<td data-field="${escapeHtml(field)}" data-row="${idx}" style="width:${width}px;">
+            ${renderCellContent(val, field, idx)}
+            <div class="cell-resize-right"></div>
+            <div class="cell-resize-bottom"></div>
+            <div class="cell-resize-corner"></div>
+          </td>`;
+        });
+        
+        html += `<td class="actions" data-field="actions" data-row="${idx}" style="width:${actionsWidth}px;">
+          <button class="btn-detail" onclick="openDetailModal(${idx})">📋</button>
+          <button class="btn-delete" onclick="confirmDelete(${idx})">🗑️</button>
+          <div class="cell-resize-right"></div>
+          <div class="cell-resize-bottom"></div>
+          <div class="cell-resize-corner"></div>
+        </td>`;
+        
+        tr.innerHTML = html;
+        tableBody.appendChild(tr);
+      });
+
+      console.log(`📊 Tableau rendu avec ${fields.length + 1} colonnes`);
+      
+      // Attacher les filtres et le redimensionnement
+      attachHeaderFilters();
+      makeColumnsResizable();
+      makeCellsResizable();
+    }
+
+    function renderCellContent(value, field, idx) {
+      if (typeof value === 'boolean') {
+        return `<input type="checkbox" ${value ? 'checked' : ''} data-field="${field}" data-index="${idx}" class="cell-checkbox">`;
+      }
+
+      if (field === 'status') {
+        return `<select data-field="status" data-index="${idx}" class="cell-input">
+          <option value="published" ${value === 'published' ? 'selected' : ''}>Publié</option>
+          <option value="draft" ${value === 'draft' ? 'selected' : ''}>Draft</option>
+        </select>`;
+      }
+
+      if (typeof value === 'number') {
+        return `<input type="number" step="0.01" value="${value}" data-field="${field}" data-index="${idx}" class="cell-input">`;
+      }
+
+      if (field === 'categories' && Array.isArray(value)) {
+        if (value.length === 0) return '<span style="color:#999">-</span>';
+        return value.map(cat => `<span class="category-tag">${escapeHtml(cat)}</span>`).join('');
+      }
+
+      if (Array.isArray(value)) {
+        if (value.length === 0) return '<span style="color:#999">-</span>';
+        return value.map(it => `<span class="array-badge">${escapeHtml(String(it))}</span>`).join('');
+      }
+
+      if (typeof value === 'object' && value !== null) {
+        return `<span class="obj-badge" onclick="openDetailModal(${idx})" title="Cliquer pour éditer">{...}</span>`;
+      }
+
+      if (typeof value === 'string') {
+        const disp = value.length > 40 ? escapeHtml(value.substring(0, 37)) + '...' : escapeHtml(value);
+        return `<input type="text" value="${escapeHtml(value)}" data-field="${escapeHtml(field)}" data-index="${idx}" class="cell-input" title="${escapeHtml(value)}">`;
+      }
+
+      return '<span style="color:#999">-</span>';
+    }
+
+    function attachHeaderFilters() {
+      document.querySelectorAll('th.header-cell').forEach(header => {
+        const filterIcon = header.querySelector('.filter-icon');
+        if (filterIcon) {
+          // Supprimer les anciens listeners
+          const oldHandler = filterIcon._clickHandler;
+          if (oldHandler) {
+            filterIcon.removeEventListener('click', oldHandler);
+          }
+
+          const clickHandler = (e) => {
+            e.stopPropagation();
+            e.preventDefault();
+            showExcelFilterMenu(header, header.dataset.field);
+          };
+
+          filterIcon._clickHandler = clickHandler;
+          filterIcon.addEventListener('click', clickHandler);
+        }
+      });
+    }
+
+    function showExcelFilterMenu(headerElement, field) {
+      document.querySelectorAll('.excel-filter-menu').forEach(m => m.remove());
+      const values = getColumnValues(field);
+      const current = AppState.columnFilters[field] || [];
+
+      const menu = document.createElement('div');
+      menu.className = 'excel-filter-menu';
+      menu.innerHTML = `
+        <div style="padding:10px; width:320px;">
+          <input type="text" class="filter-search" placeholder="Rechercher..." style="width:100%;padding:8px;margin-bottom:8px;border:1px solid #eee;border-radius:6px;">
+          <label style="display:block;padding:8px;font-weight:600;border-bottom:1px solid #f1f5f9;">
+            <input type="checkbox" class="select-all" ${values.length > 0 && values.every(v => current.includes(v)) ? 'checked' : ''}> Tout sélectionner
+          </label>
+          <div style="max-height:220px;overflow:auto;margin-top:6px;">
+            ${values.map(v => `<label style="display:block;padding:6px;"><input type="checkbox" class="filter-option" value="${escapeHtml(v)}" ${current.includes(v) ? 'checked' : ''}> ${escapeHtml(v || '(vide)')}</label>`).join('')}
+          </div>
+          <div style="display:flex;gap:8px;margin-top:8px;">
+            <button class="btn-apply" style="flex:1;padding:8px;border-radius:6px;background:#3b82f6;color:white;border:none;cursor:pointer;">Appliquer</button>
+            <button class="btn-clear" style="flex:1;padding:8px;border-radius:6px;background:#ef4444;color:white;border:none;cursor:pointer;">Réinitialiser</button>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(menu);
+
+      const rect = headerElement.getBoundingClientRect();
+      menu.style.top = (rect.bottom + 8) + 'px';
+      menu.style.left = rect.left + 'px';
+
+      const selectAll = menu.querySelector('.select-all');
+      const options = menu.querySelectorAll('.filter-option');
+      const search = menu.querySelector('.filter-search');
+
+      selectAll?.addEventListener('change', () => options.forEach(o => o.checked = selectAll.checked));
+      options.forEach(o => o.addEventListener('change', () => selectAll.checked = Array.from(options).every(x => x.checked)));
+
+      search.addEventListener('input', (e) => {
+        const t = e.target.value.toLowerCase();
+        menu.querySelectorAll('div > label').forEach(lbl => {
+          const txt = lbl.textContent.toLowerCase();
+          lbl.style.display = txt.includes(t) ? 'block' : 'none';
+        });
+      });
+
+      menu.querySelector('.btn-apply').addEventListener('click', () => {
+        const selected = Array.from(options).filter(o => o.checked).map(o => o.value);
+        AppState.columnFilters[field] = selected;
+        applyFilters();
+        menu.remove();
+      });
+
+      menu.querySelector('.btn-clear').addEventListener('click', () => {
+        AppState.columnFilters[field] = [];
+        applyFilters();
+        menu.remove();
+      });
+
+      setTimeout(() => {
+        document.addEventListener('click', function fn(e) {
+          if (!menu.contains(e.target) && !headerElement.contains(e.target)) {
+            menu.remove();
+            document.removeEventListener('click', fn);
+          }
+        });
+      }, 100);
+    }
+
+    function updateFilterIndicators() {
+      document.querySelectorAll('th.header-cell').forEach(h => {
+        const field = h.dataset.field;
+        const icon = h.querySelector('.filter-icon');
+        if (icon) {
+          if (AppState.columnFilters[field] && AppState.columnFilters[field].length > 0) {
+            icon.textContent = '🔍';
+            icon.style.color = '#fbbf24';
+          } else {
+            icon.textContent = '⚙️';
+            icon.style.color = 'inherit';
+          }
+        }
+      });
+    }
+
+    function makeColumnsResizable() {
+      const table = document.getElementById('iaTable');
+      if (!table) {
+        console.error('❌ Table non trouvée');
+        return;
+      }
+
+      const thead = table.querySelector('thead');
+      if (!thead) {
+        console.error('❌ Thead non trouvé');
+        return;
+      }
+
+      const ths = Array.from(thead.querySelectorAll('th.resizable-col'));
+      console.log(`🔍 Colonnes trouvées: ${ths.length}`);
+
+      ths.forEach((th, colIndex) => {
+        const handle = th.querySelector('.resize-handle');
+        const field = th.dataset.field;
+        
+        if (!handle) {
+          console.warn(`⚠️ Pas de poignée pour colonne ${colIndex} (${field})`);
+          return;
+        }
+
+        console.log(`✅ Installation du redimensionnement pour colonne ${colIndex}: ${field}`);
+
+        // Supprimer les anciens listeners
+        if (handle._resizeHandler) {
+          handle.removeEventListener('mousedown', handle._resizeHandler);
+        }
+
+        let startX = 0;
+        let startWidth = 0;
+        let isResizing = false;
+
+        const onMouseMove = (e) => {
+          if (!isResizing) return;
+          e.preventDefault();
+          e.stopPropagation();
+
+          const delta = e.pageX - startX;
+          const newWidth = Math.max(80, startWidth + delta);
+
+          // Appliquer au header
+          th.style.width = newWidth + 'px';
+          th.style.minWidth = newWidth + 'px';
+          th.style.maxWidth = newWidth + 'px';
+
+          // Sauvegarder la largeur
+          if (field) {
+            AppState.columnWidths[field] = newWidth;
+          }
+
+          // Appliquer à toutes les cellules de la colonne
+          const tbody = table.querySelector('tbody');
+          if (tbody) {
+            const rows = Array.from(tbody.querySelectorAll('tr'));
+            rows.forEach(row => {
+              const cell = row.children[colIndex];
+              if (cell) {
+                cell.style.width = newWidth + 'px';
+                cell.style.minWidth = newWidth + 'px';
+                cell.style.maxWidth = newWidth + 'px';
+              }
+            });
+          }
+        };
+
+        const onMouseUp = (e) => {
+          if (!isResizing) return;
+          e.preventDefault();
+          e.stopPropagation();
+          
+          isResizing = false;
+          th.classList.remove('resizing');
+          document.body.classList.remove('resizing-column');
+          
+          document.removeEventListener('mousemove', onMouseMove, true);
+          document.removeEventListener('mouseup', onMouseUp, true);
+          
+          console.log(`✅ Colonne ${colIndex} (${field}) redimensionnée à ${th.offsetWidth}px`);
+        };
+
+        const onMouseDown = (e) => {
+          e.preventDefault();
+          e.stopPropagation();
+
+          isResizing = true;
+          startX = e.pageX;
+          startWidth = th.offsetWidth;
+
+          th.classList.add('resizing');
+          document.body.classList.add('resizing-column');
+
+          document.addEventListener('mousemove', onMouseMove, true);
+          document.addEventListener('mouseup', onMouseUp, true);
+
+          console.log(`🎯 Début redimensionnement colonne ${colIndex} (${field}), largeur: ${startWidth}px`);
+        };
+
+        handle._resizeHandler = onMouseDown;
+        handle.addEventListener('mousedown', onMouseDown, false);
+      });
+
+      console.log(`✅ ${ths.length} colonnes rendues redimensionnables`);
+    }
+
+    function openDetailModal(index) {
+      const ia = AppState.filteredData[index];
+      document.getElementById('modalTitle').textContent = ia.name || 'Détails';
+      let html = '';
+      const fields = getAllFields();
+      fields.forEach(field => {
+        const val = ia[field];
+        const str = (typeof val === 'object') ? JSON.stringify(val, null, 2) : String(val || '');
+        html += `
+          <div class="field-group">
+            <label>${escapeHtml(field)}</label>
+            <textarea data-field="${escapeHtml(field)}" data-index="${index}">${escapeHtml(str)}</textarea>
+          </div>
+        `;
+      });
+      html += `<div style="display:flex;gap:8px;margin-top:8px;">
+        <button class="btn-save" style="flex:1;padding:10px;border-radius:8px;background:var(--accent);color:white;border:none;cursor:pointer;" onclick="saveDetailChanges(${index})">💾 Enregistrer</button>
+        <button class="btn-delete" style="flex:1;padding:10px;border-radius:8px;background:#ef4444;color:white;border:none;cursor:pointer;" onclick="closeModal()">✕ Annuler</button>
+      </div>`;
+      modalBody.innerHTML = html;
+      detailModal.classList.add('show');
+      detailModal.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeModal() {
+      detailModal.classList.remove('show');
+      detailModal.setAttribute('aria-hidden', 'true');
+    }
+
+    function saveDetailChanges(index) {
+      const inputs = modalBody.querySelectorAll(`[data-index="${index}"]`);
+      const updated = { ...AppState.filteredData[index] };
+      inputs.forEach(inp => {
+        const field = inp.dataset.field;
+        let value = inp.value;
+        try {
+          if ((value.startsWith('{') || value.startsWith('['))) {
+            value = JSON.parse(value);
+          }
+        } catch (e) {}
+        updated[field] = value;
+      });
+      updated.updatedAt = new Date().toISOString().split('T')[0];
+      const origIdx = AppState.iaData.findIndex(it => it.id === updated.id);
+      if (origIdx !== -1) {
+        AppState.iaData[origIdx] = updated;
+      } else {
+        AppState.iaData.push(updated);
+      }
+      AppState.isDirty = true;
+      saveDraftLocal();
+      applyFilters();
+      showMsg('Changements enregistrés', 'success', 2000);
+      closeModal();
+    }
+
+    function confirmDelete(index) {
+      const ia = AppState.filteredData[index];
+      if (!ia) return;
+      if (confirm(`Supprimer "${ia.name || ia.id || 'élément'}" ?`)) {
+        deleteIA(index);
+      }
+    }
+
+    function deleteIA(index) {
+      const ia = AppState.filteredData[index];
+      const origIdx = AppState.iaData.findIndex(it => it.id === ia.id);
+      if (origIdx !== -1) AppState.iaData.splice(origIdx, 1);
+      AppState.isDirty = true;
+      saveDraftLocal();
+      applyFilters();
+      showMsg(`"${ia.name || ia.id}" supprimée`, 'success', 2000);
+    }
+
+    function addIA() {
+      const newIA = {
+        id: 'new-' + Date.now(),
+        slug: 'new-slug-' + Date.now(),
+        name: 'Nouvelle IA',
+        short: '',
+        description: '',
+        categories: [],
+        status: 'draft',
+        featured: false,
+        updatedAt: new Date().toISOString().split('T')[0]
+      };
+      AppState.iaData.unshift(newIA);
+      AppState.isDirty = true;
+      saveDraftLocal();
+      applyFilters();
+      showMsg('Nouvelle IA ajoutée', 'success', 1500);
+    }
+
+    function exportJSON() {
+      const dataStr = JSON.stringify(AppState.iaData, null, 2);
+      const blob = new Blob([dataStr], { type: 'application/json;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `ia-data-${new Date().toISOString().split('T')[0]}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showMsg('Fichier exporté', 'success', 1500);
+    }
+
+    async function saveAll() {
+      if (window.GITHUB_CONFIG && window.GITHUB_CONFIG.token) {
+        await saveToGitHub(AppState.iaData);
+      } else {
+        showMsg('💾 Sauvegarde locale...', 'warning', 0);
+        await saveDraftLocal();
+        AppState.isDirty = false;
+        updateStats();
+        showMsg('✅ Données sauvegardées localement (IndexedDB)', 'success', 3000);
+      }
+    }
+
+    function handleTableChange(e) {
+      if (!e.target.dataset.field) return;
+      const field = e.target.dataset.field;
+      const index = parseInt(e.target.dataset.index);
+      let value = e.target.value;
+      if (e.target.type === 'checkbox') value = e.target.checked;
+      else if (e.target.type === 'number') value = parseFloat(value) || 0;
+
+      AppState.filteredData[index][field] = value;
+      AppState.filteredData[index].updatedAt = new Date().toISOString().split('T')[0];
+
+      const origIdx = AppState.iaData.findIndex(ia => ia.id === AppState.filteredData[index].id);
+      if (origIdx !== -1) AppState.iaData[origIdx] = AppState.filteredData[index];
+
+      AppState.isDirty = true;
+      saveDraftLocal();
+      updateStats();
+    }
+
+    function setupEventListeners() {
+      document.getElementById('addIA')?.addEventListener('click', addIA);
+      document.getElementById('exportJSON')?.addEventListener('click', exportJSON);
+      document.getElementById('saveAll')?.addEventListener('click', saveAll);
+      document.getElementById('refreshData')?.addEventListener('click', () => {
+        if (confirm('Rafraîchir ? Vous perdrez vos brouillons locaux.')) {
+          AppState.columnFilters = {};
+          loadData();
+          AppState.isDirty = false;
+        }
+      });
+
+      searchInput?.addEventListener('input', () => {
+        clearTimeout(searchInput._t);
+        searchInput._t = setTimeout(() => applyFilters(), 180);
+      });
+
+      categorySelect?.addEventListener('change', () => {
+        const val = categorySelect.value;
+        document.querySelectorAll('#categoryFilters .filter-btn').forEach(b =>
+          b.classList.toggle('active', b.dataset.cat === val)
+        );
+        applyFilters();
+      });
+
+      tableBody?.addEventListener('input', handleTableChange);
+      tableBody?.addEventListener('change', handleTableChange);
+
+      document.getElementById('closeModalBtn')?.addEventListener('click', closeModal);
+      detailModal?.addEventListener('click', (e) => {
+        if (e.target === detailModal) closeModal();
+      });
+    }
+
+    function renderCategorySelect() {
+      if (!categorySelect) return;
+      const cats = new Set(AppState.iaData.flatMap(ia => ia.categories || []));
+      categorySelect.innerHTML = '<option value="">Toutes catégories</option>';
+      Array.from(cats).sort().forEach(c => {
+        const opt = document.createElement('option');
+        opt.value = c;
+        opt.textContent = c;
+        categorySelect.appendChild(opt);
+      });
+    }
+
+    function renderCategoryQuickButtons() {
+      if (!categoryFiltersDiv) return;
+      const cats = new Set(AppState.iaData.flatMap(ia => ia.categories || []));
+      
+      const label = categoryFiltersDiv.querySelector('.category-filters-label');
+      categoryFiltersDiv.innerHTML = '';
+      if (label) categoryFiltersDiv.appendChild(label.cloneNode(true));
+
+      const allBtn = document.createElement('button');
+      allBtn.className = 'filter-btn active';
+      allBtn.dataset.cat = '';
+      allBtn.textContent = 'Toutes';
+      categoryFiltersDiv.appendChild(allBtn);
+
+      allBtn.addEventListener('click', () => {
+        document.querySelectorAll('#categoryFilters .filter-btn').forEach(b => b.classList.remove('active'));
+        allBtn.classList.add('active');
+        if (categorySelect) categorySelect.value = '';
+        applyFilters();
+      });
+
+      Array.from(cats).sort().slice(0, 15).forEach(c => {
+        const btn = document.createElement('button');
+        btn.className = 'filter-btn';
+        btn.dataset.cat = c;
+        btn.textContent = c;
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('#categoryFilters .filter-btn').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          if (categorySelect) categorySelect.value = c;
+          applyFilters();
+        });
+        categoryFiltersDiv.appendChild(btn);
+      });
+    }
+
+    window.openDetailModal = openDetailModal;
+    window.closeModal = closeModal;
+    window.saveDetailChanges = saveDetailChanges;
+    window.confirmDelete = confirmDelete;
+    window.deleteIA = deleteIA;
+
+    function makeCellsResizable() {
+      const table = document.getElementById('iaTable');
+      if (!table) return;
+
+      const tbody = table.querySelector('tbody');
+      if (!tbody) return;
+
+      const cells = tbody.querySelectorAll('td');
+      console.log(`🔧 Installation du redimensionnement sur ${cells.length} cellules`);
+
+      cells.forEach(cell => {
+        const handleRight = cell.querySelector('.cell-resize-right');
+        const handleBottom = cell.querySelector('.cell-resize-bottom');
+        const handleCorner = cell.querySelector('.cell-resize-corner');
+
+        // POIGNÉE DROITE (largeur uniquement)
+        if (handleRight) {
+          if (handleRight._handler) {
+            handleRight.removeEventListener('mousedown', handleRight._handler);
+          }
+
+          const onMouseDown = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const startX = e.pageX;
+            const startWidth = cell.offsetWidth;
+            let isResizing = true;
+
+            cell.classList.add('resizing-cell');
+            document.body.classList.add('resizing-active');
+
+            console.log(`🎯 Début resize largeur: ${startWidth}px à X=${startX}`);
+
+            const onMouseMove = (e) => {
+              if (!isResizing) return;
+              e.preventDefault();
+              e.stopPropagation();
+
+              const deltaX = e.pageX - startX;
+              const newWidth = Math.max(40, startWidth + deltaX);  // ← Minimum 40px au lieu de 60px
+              
+              cell.style.width = newWidth + 'px';
+              cell.style.minWidth = newWidth + 'px';
+
+              console.log(`↔️ Delta: ${deltaX}px, Nouvelle largeur: ${newWidth}px`);
+            };
+
+            const onMouseUp = (e) => {
+              if (!isResizing) return;
+              isResizing = false;
+              
+              cell.classList.remove('resizing-cell');
+              document.body.classList.remove('resizing-active');
+              
+              document.removeEventListener('mousemove', onMouseMove, true);
+              document.removeEventListener('mouseup', onMouseUp, true);
+
+              console.log(`✅ Largeur finale: ${cell.offsetWidth}px`);
+            };
+
+            document.addEventListener('mousemove', onMouseMove, true);
+            document.addEventListener('mouseup', onMouseUp, true);
+          };
+
+          handleRight._handler = onMouseDown;
+          handleRight.addEventListener('mousedown', onMouseDown);
+        }
+
+        // POIGNÉE BAS (hauteur uniquement)
+        if (handleBottom) {
+          if (handleBottom._handler) {
+            handleBottom.removeEventListener('mousedown', handleBottom._handler);
+          }
+
+          const onMouseDown = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const startY = e.pageY;
+            const startHeight = cell.offsetHeight;
+            let isResizing = true;
+
+            cell.classList.add('resizing-cell');
+            document.body.classList.add('resizing-active');
+
+            const onMouseMove = (e) => {
+              if (!isResizing) return;
+              e.preventDefault();
+              e.stopPropagation();
+
+              const deltaY = e.pageY - startY;
+              const newHeight = Math.max(30, startHeight + deltaY);  // ← Minimum 30px au lieu de 40px
+              
+              cell.style.height = newHeight + 'px';
+              cell.style.minHeight = newHeight + 'px';
+            };
+
+            const onMouseUp = () => {
+              if (!isResizing) return;
+              isResizing = false;
+              
+              cell.classList.remove('resizing-cell');
+              document.body.classList.remove('resizing-active');
+              
+              document.removeEventListener('mousemove', onMouseMove, true);
+              document.removeEventListener('mouseup', onMouseUp, true);
+            };
+
+            document.addEventListener('mousemove', onMouseMove, true);
+            document.addEventListener('mouseup', onMouseUp, true);
+          };
+
+          handleBottom._handler = onMouseDown;
+          handleBottom.addEventListener('mousedown', onMouseDown);
+        }
+
+        // POIGNÉE COIN (largeur + hauteur)
+        if (handleCorner) {
+          if (handleCorner._handler) {
+            handleCorner.removeEventListener('mousedown', handleCorner._handler);
+          }
+
+          const onMouseDown = (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+
+            const startX = e.pageX;
+            const startY = e.pageY;
+            const startWidth = cell.offsetWidth;
+            const startHeight = cell.offsetHeight;
+            let isResizing = true;
+
+            cell.classList.add('resizing-cell');
+            document.body.classList.add('resizing-active');
+
+            const onMouseMove = (e) => {
+              if (!isResizing) return;
+              e.preventDefault();
+              e.stopPropagation();
+              
+              const deltaX = e.pageX - startX;
+              const deltaY = e.pageY - startY;
+              
+              const newWidth = Math.max(40, startWidth + deltaX);   // ← 40px
+              const newHeight = Math.max(30, startHeight + deltaY); // ← 30px
+
+              cell.style.width = newWidth + 'px';
+              cell.style.height = newHeight + 'px';
+              cell.style.minWidth = newWidth + 'px';
+              cell.style.minHeight = newHeight + 'px';
+            };
+
+            const onMouseUp = () => {
+              if (!isResizing) return;
+              isResizing = false;
+              
+              cell.classList.remove('resizing-cell');
+              document.body.classList.remove('resizing-active');
+              
+              document.removeEventListener('mousemove', onMouseMove, true);
+              document.removeEventListener('mouseup', onMouseUp, true);
+            };
+
+            document.addEventListener('mousemove', onMouseMove, true);
+            document.addEventListener('mouseup', onMouseUp, true);
+          };
+
+          handleCorner._handler = onMouseDown;
+          handleCorner.addEventListener('mousedown', onMouseDown);
+        }
+      });
+
+      console.log(`✅ ${cells.length} cellules rendues redimensionnables (3 poignées chacune)`);
+    }
+  </script>
+
+  <script>
+    // Configuration GitHub (à créer dans un fichier séparé github-config.js)
+window.GITHUB_CONFIG = {
+  token: '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', // papa
+  repoOwner: 'redragon38', //papa
+  repoName: 'comparateur-ia',//papa
+  filePath: 'info.json',//papa
+  branch: 'main'//papa
+};
+    async function saveToGitHub(data) {
+      const cfg = window.GITHUB_CONFIG;
+      if (!cfg || !cfg.token) {
+        showMsg('❌ Token GitHub manquant. Veuillez configurer GITHUB_CONFIG.token', 'error', 5000);
+        console.warn('Pour sauvegarder sur GitHub, créez un fichier github-config.js avec votre token');
+        return;
+      }
+
+      showMsg('💾 Sauvegarde sur GitHub en cours...', 'warning', 0);
+
+      try {
+        const res = await fetch(`https://api.github.com/repos/${cfg.repoOwner}/${cfg.repoName}/contents/${cfg.filePath}`, {
+          headers: { 
+            Authorization: `token ${cfg.token}`,
+            'Content-Type': 'application/json'
+          }
+        });
+        
+        if (!res.ok) throw new Error(`Impossible de récupérer le fichier (HTTP ${res.status})`);
+        const file = await res.json();
+
+        const content = btoa(unescape(encodeURIComponent(JSON.stringify(data, null, 2))));
+
+        const updateRes = await fetch(`https://api.github.com/repos/${cfg.repoOwner}/${cfg.repoName}/contents/${cfg.filePath}`, {
+          method: 'PUT',
+          headers: {
+            Authorization: `token ${cfg.token}`,
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            message: `📝 Mise à jour via Admin (${new Date().toLocaleString('fr-FR')})`,
+            content,
+            sha: file.sha,
+            branch: cfg.branch
+          })
+        });
+
+        if (!updateRes.ok) {
+          const errorData = await updateRes.json();
+          throw new Error(`Erreur GitHub: ${errorData.message || updateRes.status}`);
+        }
+        
+        AppState.isDirty = false;
+        updateStats();
+        showMsg('✅ Sauvegardé sur GitHub avec succès !', 'success', 4000);
+
+      } catch (err) {
+        console.error('Erreur GitHub:', err);
+        showMsg('❌ Erreur GitHub: ' + err.message, 'error', 6000);
+      }
+    }
+  </script>
+</body>
+</html>
